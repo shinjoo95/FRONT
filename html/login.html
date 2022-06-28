@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+</head>
+<body>
+    <form action="#">
+        <fieldset>                                                                                  <!--필드로 그룹화하고 레전드로 그룹명지정-->
+            <legend>로그인</legend>
+            <button type="button">
+                구글 로그인
+            </button>
+        </fieldset>
+        <p>or</p>
+        <fieldset>
+            <legend>일반 로그인</legend>
+            <label for="username">                                                                  <!--웹 접근성을 고려해 label 태그도 사용-->
+                <input type="text" id="username" name="username" placeholder="아이디를 입력하세요">
+            </label>
+            <label for="password">
+                <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요">
+            </label>
+            <button type="submit">
+                로그인
+            </button>
+        </fieldset> 
+        <a href="#">비밀번호 찾기</a>
+    </body>
+</html>
