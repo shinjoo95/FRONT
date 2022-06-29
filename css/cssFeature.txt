@@ -1,0 +1,70 @@
+1.CSS 특징
+    - 기본 스타일 시트 : 웹 브라우저에 기본으로 내장되어 웹 브라우저에 표시되는 요소들의 글꼴이나 크기, 색상, 굵기, 
+                     문단 설정과 같은 스타일이 미리 정의된 파일 또는 문서 양식을 말함.
+
+    - 적용 우선순위와 개별성 : 정의된 속성보다 사용자가 정의한 스타일 속성이 우선 적용됨
+                         같은 태그 요소의 선택자가 여럿일 때 마지막 스타일 속성이 높이 적용됨
+
+  선택자               예                     점수
+====================================================
+전체 선택자        *                            0
+태그 선택자        div p h1                     1
+가상 요소 선택자    ::before ::after             1
+클래스 선택자      .box, .title                 10
+가상 클래스 선택자  :hover :visited :link        10
+아이디 선택자      #title #main                 100
+인라인 스타일      style="color:red"           1,000
+
+    - 상속 : 부모 요소에 적용된 스타일을 자식 요소가 그대로 물려받아 적용되는 현상
+
+    - 단위 : 절대 단위와 상대 단위로 나뉨
+        - 절대 단위 : px(pixel) 모니터의 화면을 구성하는 사각형 1개의 크기를 의미, css에서 사용할 수 있는 크기 단위 중 가장 기본
+        - 상대 단위
+            - %  : 해당 속성의 상위 요소 속성값에 상대적인 크기를 가짐
+            - em : 부모 요소의 텍스트 크기에 상대적인 크기를 가짐
+            - rem: html 태그의 텍스트 크기에 상대적인 크기를 가짐
+            - vw : 뷰포트의 너비를 기준으로 상대적인 크기를 가짐
+            - vh : 뷰포트의 높이를 기준으로 상대적인 크기를 가짐
+
+    - 색상 표기법
+        - 키워드 표기법 : 색상의 영문명을 속성값으로 사용하는 방법 
+        - RGB 색상 표기법 : rgb(red, green, blue) / rgb(255,0,0) 
+        - HEX 표기법 : #을 붙이는게 특징. 00이 가장 낮은 값이고, ff가 가장 높은 값임 / #ff0000
+
+2. 텍스트 속성으로 텍스트 꾸미기
+
+    - font-family : 글꼴을 지정할 수 있음. 한글로 된 글꼴이나 공백이 있는 글꼴명은 "" 감싸야됨
+        - font-family:BatangChe, "Times New Roman";
+
+    - 글꼴 유형
+        - serif : 삐침이 있는 명조 계열의 글꼴
+        - sans-serif : 삐침이 없고 굵기가 일정한 고딕 계열의 글꼴
+        - monospace : 텍스트 폭과 간격이 일정한 글꼴
+        - fantasy : 화려한 글꼴
+        - cursive : 손으로 쓴 것 같은 필기체 계열의 글꼴
+
+    - font-size : 텍스트 크기를 변경하고 싶을 때 사용하는 속성 
+        - font-size : 15px;
+    - font-weight : 텍스트의 굵기를 지정하는 데 사용.
+        - font-weight : 100; (100~900)
+        - font-weight : lighter; (normal : 400, bold : 700, lighter : 부모 요소보다 얇게, bolder : 부모의 요소보다 굵게)
+    - font-style : 글꼴의 스타일을 지정할 떄 사용
+        - font-style : italic; (normal : 기본 형태로 표시, italic : 이탤릭체로 표시, oblique : 기울임꼴로 표시)
+    - font-variant : 영문 텍스트를 크기가 작은 대문자로 변경할 때 사용
+        - font-variant : small-caps; (normal : 텍스트를 변환하지 않음, small-caps : 텍스트를 크기가 작은 대문자로 변환)
+    - text-align : 텍스트를 정렬할 때 사용
+        - text-align : right; (left : 왼쪽, right : 오른쪽, center : 중앙, justify : 양쪽)
+    - text-decoration : 텍스트를 꾸며 주기 위해 사용 / 텍스트에 선을 긋는 것
+        - text-decoartion : none; 
+            (none : 텍스트  장식을 모두 지움, line-through : 텍스트 중간을 관통하는 선을 그음, overline : 텍스트 위에 선을 그음, underline : 텍스트 아래에 선을 그음)
+    - letter-spacing : 글자 사이를 조절할 때 사용 
+        - letter-spacing : normal;/15px;
+    - line-height : 텍스트 한 줄의 높이를 지정할 때 사용
+        - line-height : normal; 
+            (normal : 웹 브라우저에서 정한 기본값, 숫자 : 현재 사이즈에 입력한 숫자를 곱한 값, 퍼센트 : 현재 사이즈에 입력한 비율을 곱한 값, 크기 : 입력한 크기 적용)
+
+    - font-size 속성은 글자 자체의 크기를 지정하지만 모든 텍스트는 웹 브라우저에 표시될 때 위아래로 일정 크기의 여유 공간을 가지고 있음.
+        이러한 여유 공간을 전부 포함한 글줄 사이의 간격을 행간이라 하며 line-height로 제어함, line-height가 font-size보다 작으면 
+        윗줄 아랫줄의 텍스트가 겹쳐 보여 가독성이 떨어질 수 있음으로 line-height는 항상 font-size보다 크기 지정하는 편이 좋음    
+
+    
