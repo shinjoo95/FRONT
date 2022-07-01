@@ -65,6 +65,91 @@
 
     - font-size 속성은 글자 자체의 크기를 지정하지만 모든 텍스트는 웹 브라우저에 표시될 때 위아래로 일정 크기의 여유 공간을 가지고 있음.
         이러한 여유 공간을 전부 포함한 글줄 사이의 간격을 행간이라 하며 line-height로 제어함, line-height가 font-size보다 작으면 
-        윗줄 아랫줄의 텍스트가 겹쳐 보여 가독성이 떨어질 수 있음으로 line-height는 항상 font-size보다 크기 지정하는 편이 좋음    
+        윗줄 아랫줄의 텍스트가 겹쳐 보여 가독성이 떨어질 수 있음으로 line-height는 항상 font-size보다 크기 지정하는 편이 좋음  
 
+3. 박스 모델을 구성하는 속성 다루기
+    
+    - margin : 요소의 외부 여백을 의미
+    - border : 요소의 테두리(경계선)를 의미
+    - padding : 요소의 내부 여백을 의미 
+    - content : 요소의 내용을 의미 
+
+    - margin 영역
+        - 박스 모델에서 가장 외부에 있는 영역으로, 요소의 외부 여백을 담당
+        - margin : <margin-top> <margin-right> <margin-bottom> <margin-left>
+        - margin 겹침 현상 : 같은 레벨에 있는 요소들의 margin 영역이 중첩되면 더 큰 값을 가진 margin 영역으로 병합되어 출력되는 현상
+                            (20px + 30px => 30px)
+
+    - border 영역
+        - margin보다 안쪽에 있으며, 요소의 테두리(경계선)를 담당
+        - border : <border-width> <border-style> <color>;
+            - width : 테두리의 굵기 지정, 단위를 포함한 크기를 사용
+            - style : 테두리의 모양
+                - none : 테두리 없음
+                  hidden : 테두리를 화면에서 감춤
+                  solid : 테두리를 실선으로 그림
+                  double : 테두리를 이중 실선으로 그림
+                  dotted : 테두리를 점선으로 그림
+                  dashed : 테두리를 dotted보다 긴 점선으로 그림
+                  groove : 테두리가 파인 것처럼 그림
+                  ridge : 테두리가 튀어나온 것처럼 그림
+                  inset : 테두리를 요소가 파인 것처럼 그림
+                  outset : 테두리를 요소가 튀어나온 것처럼 그림 
+    
+    - padding 영역
+        - margin, border 영역보다 안쪽에 있으며 요소의 내부 여백을 담당
+        - margin 영역에서 사용하는 속성과 형식이 매우 비슷
+
+    - content 영역 
+        - 다른 박스 모델의 구성 요소와는 다르게 content 영역은 content 영역 자체를 다루는 속성은 없음
+        - content 영역을 제어하는 속성처럼 width 속성과 height 속성이 있음
+
+        - box-sizing 
+            - content-box : width, height 속성의 적용 범위를 content 영역으로 제한
+            - border-box : width, height 속성의 적용 범위를 border 영역으로 제한 
+    
+    - 박스 모델의 성격과 display 성격
+        - 블록 성격 : hn, p, div 태그를 사용했을 때 요소의 너비가 컨텐츠 유무와 상관없이 항상 가로 한 줄을 다 차지하는 것
+                    hn, p, div 태그를 여러 번 사용하면 무조건 줄 바꿈이 됨.
+
+        - 인라인 성격 : a, span, strong 태그를 사용했을 때 요소의 너비를 콘텐츠만큼만 차지하는 성격
+                     태그를 여러 번 사용할 때 웹 브라우저의 수평 공간이 남아 있으면 한 줄로 배치
+
+        - 인라인 블록 성격 : 요소의 너비가 콘텐츠의 크기만큼만 차지하지만, 그 외의 성격은 블록 성격을 가지는 복합적인 성격
+                         img 태그를 사용할 때 웹 브라우저의 수평 공간이 남아 있으면 한 줄로 배치
+                    
+        - display 속성 : html 태그가 기본으로 가지고 있는 박스 모델의 성격은 display 속성을 사용하면 변경할 수 있음
+                        속성값으로는 block, inline, inline-block 을 사용함 블록 성격인 태그를 인라인 성격으로 바꾸고 싶다면
+                        display 속성값을 inline으로 지정하면 됨. 반대로 인라인 성격인 태그를 블록 성격이나 인라인 블록 성격으로 바꾸고 싶다면
+                        display 성격을 inline-block 으로 지정하면 됨.
+
+    - 배경 속성으로 요소의 배경 설정하기 
+        - background-color : 요소의 배경에 색상을 넣을 수 있음
+        - background-image : 이미지를 넣을 수 있음, 삽입할 이미지의 경로를 url()함수로 지정
+            - 요소의 배경 크기가 반드시 있어야 됨. 요소의 배경에 이미지를 삽입하는 원리기 때문에 요소 배경의 너비와 높이를 지정하지 않으면 이미지가 보이지 않음
+            - 이미지의 크기가 요소의 배경 크기와 맞지 않으면 어색해 보임. 배경크기가 이미지보다 작으면 원본 이미지가 잘림, 크면 반복으로 채워짐 
+        - background-repeat : 이미지의 반속 설정
+            - no-repeat : 이미지를 반복하지 않음
+            - repeat-x : 이미지를 가로 방향으로 반복
+            - repeat-y : 이미지를 세로 뱡향으로 반복 
+            - repeat : 이미지를 가로와 세로 방향으로 반복
+            - round : 이미지를 반복하되 이미지가 요소에 딱 맞도록 크기를 자동 조절
+            - space : 이미지가 잘리지 않도록 반복
+        - background-size : 이미지 크기를 지정
+            - auto : 이미지 크기를 유지
+            - cover : 이미지의 가로 세로 비율을 유지하면서 크기를 확대하거나 축소해 요소의 배경을 꽉 채움
+            - contain : 이미지의 가로 세로 비율을 유지하면서 이미지가 배경 요소 안에 들어가도록 크기를 확대하거나 축소
+            - <너비 높이> : 이미지 크기를 직접 지정
+        - background-position : 삽입하려는 이미지의 위치를 설정
+            - x / left, center, right / x축(가로) 방향의 위치를 지정
+              y / top, center, bottom / y축(세로) 방향의 위치를 지정
+            공통 / px, rem, em, %      / 위치를 직접 지정
+        - background-attachment : 삽입된 이미지를 스크롤할 때, 이미지의 작동 방식을 결정
+            - local : 삽입된 이미지가 요소와 웹 브라우저에서 모두 스크롤 됨
+            - scroll : 삽입된 이미지가 요소에서는 고정되지만, 웹 브라우저에서는 스크롤 됨
+            - fixed : 삽입된 이미지가 요소와 웹 브라우저에서 모두 고정 됨
+        - background 속성으로 한 번에 저장하기 
+            - background : <color 속성값> <image 속성값> <repeat 속성값> <position 속성값/ size 속성값> <attachment 속성값>;
+            
+        
     
