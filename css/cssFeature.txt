@@ -150,6 +150,66 @@
             - fixed : 삽입된 이미지가 요소와 웹 브라우저에서 모두 고정 됨
         - background 속성으로 한 번에 저장하기 
             - background : <color 속성값> <image 속성값> <repeat 속성값> <position 속성값/ size 속성값> <attachment 속성값>;
-            
+
+4. 위치 속성으로 html 요소 배치하기
+    - position : html 요소를 기본 흐름에서 벗어나 좌푯값에 따라 배치할 때 사용
+        - static : 요소를 기본 흐름에 따라 배치
+        - relative : 요소를 기본 흐름에 따라 배치하지만, 좌표 속성을 사용
+        - absolute : 요소를 기본 흐름에서 벗어나 절대적인 좌표 위치에 따라 배치
+        - fixed : 요소를 기본 흐름에서 벗어나 절대적인 좌표 위치에 따라 배치, 스크롤해도 해당 위치에 고정
+        - sticky : 요소를 static 값처럼 기본 흐름에 따라 배치하지만, 지정한 좌표에의 임계점에 이르면 fixed 값처럼 화면에 고정 
         
+    - float : 요소를 화면에 배치하는 또 다른 방법
+        - none : float 속성을 적용하지 않음
+        - left : 대상 요소를 공중에 띄워 왼쪽에 배치하면서 다음에 오는 요소를 주변에 자연스럽게 배치
+        - right : 대상 요소를 공중에 띄워 오른쪽에 배치하면서 다음에 오는 요소를 주변에 자연스럽게 배치
     
+    - clear : float 속성을 해제할 때 사용하는 속성, float 속성이 대상 요소의 다음 요소에 영향을 주기 때문에 영향을 주지 않도록 해제해야됨
+        - left : float 속성의 left 값을 해제
+        - right : float 속성의 right 값을 해제
+        - both : float 속성의 left와 right 값을 모두 해제 
+
+5. 전환 효과 속성 적용하기
+    - 전환 : CSS에서 한 요소에 적용된 스타일 속성값을 다른 속성값으로 변하게 하는 것 
+        - transition-property : <속성값 / 미리 정해진 키워드>; // 전환 효과를 적용할 대상 선정
+        - transition-duration : <시간>;                   // 전환 효과의 지속 시간을 설정
+        - transition-delay : <시간>;                      // 전환 효과의 발생을 지연
+        - transition-timing-function                     // 전환 효과의 진행 속도 지정
+            - linear : 처음 속도와 마지막 속도가 일정
+              ease : 처음에는 속도가 점점 빨라지다가 중간부터 점점 느려짐
+              ease-in : 처음에는 속도가 느리지만 완료될 때까지 점점 빨라짐
+              ease-out : 처음에는 속도가 빠르지만 완료될 때까지 점점 느려짐
+              ease-in-out : 처음에는 속도가 느리지만 점점 빨라지다가 다시 점점 느려짐
+              cubic-bezier(p1, p2, p3, p4) : 사용자가 정의한 속도로 진행 
+
+6. 애니메이션 속성으로 전환 효과 제어하기
+- 정지된 이미지를 연속적으로 보여 줘서 움직이는 것처럼 보이게 합니다. 애니메이션 속성은 전환 효과 속성과 다르게 키 프레임(@keyframe)을 정의해서 실행해야 합니다.
+  키 프레임은 애니메이션이 진행되는 과정에서 특정 시점에서 발생해야 하는 여러 작업을 정의하는 문법입니다. 따라서 키 프레임에는 시작과 종료에 해당하는 최소 2개 시점에 대한 스타일이 정의되어야 함
+
+  @keyframe <키 프레임명>{
+    0%{/* CSS코드 */}
+    n%{/* CSS코드 */}
+    100%{/* CSS코드 */}
+  }
+
+    - animation-name 속성 : 특정 요소에서 적용할 키 프레임명을 지정
+        - animation-name : <키 프레임명>;
+    - animation-duration 속성 : 애니메이션을 지속할 시간을 설정 
+        - animation-duration : <지속 시간>;
+    - animation-delay 속성 : 애니메이션 실행을 지연
+        - animation-delay : <지연 시간>;
+    - animation-fill-mode 속성 : 애니메이션이 끝나도 원래 상태로 돌아가지 않고 애니메이션이 종료된 시점의 상태를 유지할 수 있음 
+    - animation-iterator-count 속성 : 실행 횟수를 조절
+        - animation-iterator-count : <횟수>;
+    - animation-play-state 속성 : 재생 상태를 지정  // 실행 도중에 일시 정지하거나 다시 재생할 수 있음
+        - pause : 애니메이션의 실행을 일시 정지
+        - running : 애니메이션을 실행 
+    - animation-direction 속성 : 진행 방향을 지정
+        - animation-direction : <속성값>;
+            - normal : 애니메이션의 진행 방향을 키 프레임에 정의된 시간 순서대로 진행(to -> from)
+            - reverse : 애니메이션의 진행 방향을 키 프레임에 정의된 시간 순서의 역으로 진행(from -> to)
+            - alternate : 애니메이션이 1회 이상 실행될 경우 홀수 번째는 normal로, 짝수 번째는 reverse로 진행
+            - alternate-reverse : 애니메이션이 1회 이상 실행될 경우 홀수 번째는 reverse로, 짝수 번째는 normal로 진행
+    - animation 속성으로 한 번에 지정하기
+        - animation : <name> <duration> <timing-function> <delay> <iteration-count> <direction> <fill-mode> <play-state>;
+        
