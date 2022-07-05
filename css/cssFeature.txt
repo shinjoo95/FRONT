@@ -212,4 +212,26 @@
             - alternate-reverse : 애니메이션이 1회 이상 실행될 경우 홀수 번째는 reverse로, 짝수 번째는 normal로 진행
     - animation 속성으로 한 번에 지정하기
         - animation : <name> <duration> <timing-function> <delay> <iteration-count> <direction> <fill-mode> <play-state>;
-        
+
+7. 변형 효과 적용하기
+- 요소의 크기를 변경하거나 위치를 이동하거나 회전시키는 것. CSS3에서 새로 추가된 속성으로, 단순하게 2D에서 변형뿐만 아니라 3D에서의 변형도 가능합니다.
+
+    - transform 속성 : 요소에 특정 변형 효과를 지정할 수 있음. 
+        - transform : <함수>;
+            - translate(x,y) : 요소를 현재 위치에서 x와 y만큼 이동
+            - translateX(n) : 요소를 현재 위치에서 n만큼 x축으로 이동
+            - translateY(n) : 요소를 현재 위치에서 n만큼 y축으로 이동
+            - scale(x,y) : 요소를 x와 y축만큼 확대 또는 축소 
+            - scaleX(n) : 요소를 n만큼 x축으로 확대 또는 축소 
+            - scaleY(n) : 요소를 만큼 y축으로 확대 또는 축소
+            - skew(xdeg, ydeg) : 요소를 x축과 y축으로 xdeg, ydeg(각도)만큼 기울임
+            - skewX(deg) : 요소를 deg(각도)만큼 x축 방향으로 기울임
+            - skewY(deg) : 요소를 주어진 deg(각도)만큼 y축 방향으로 기울임
+            - rotate(deg) : 요소를 deg(각도)만큼 회전 
+
+8. 웹 폰트와 아이콘 폰트 사용하기
+- 웹 폰트는 인증된 기관 또는 회사에서 웹 서버에 올려 놓은 폰트를 말함. 사용자가 웹 서버에서 폰트를 참조해서 사용하므로 시스템에 글꼴이 없어도
+  모든 사용자가 같은 글꼴을 사용할 수 있다는 장점이 있음. 대표적으로 '구글 웹 폰트'
+- 아이콘 폰트는 다양한 아이콘을 웹 폰트를 사용하는 것처럼 간단하고 쉽게 사용하는 기술
+  대표적으로 Font Awesome 과 Material Icon 
+
