@@ -1,0 +1,37 @@
+1. 변수
+자바스크립트에서 변수를 선언할때는 
+변하지 않는 값은 const, 변할 수 있는 값은 let으로 선언
+    - 변수는 문자와 숫자, $, _만 사용
+    - 첫 글자는 숫자가 될 수 없음
+    - 예약어는 사용할 수 없음 
+    - 가급적 상수는 대문자로
+    - 변수명은 읽기 쉽고 이해할 수 있게 선언
+
+2. 자료형 
+  const name = "shinjoo";
+  const message = `My name is ${name}`; //일반 따옴표로 작성하게 되면 변수명이 그대로 노출 
+
+  const a = "나는 ";
+  const b = "입니다. ";
+  console.log(a + name + b); //숫자도 문자형으로 변환 
+
+3. 대화상자
+  alert - 알려줌
+  prompt - 입력 받음
+  confirm - 확인 받음 
+
+  alert() - 메세지를 띄움, 
+  prompt - 값을 입력 받을 때 사용, default 값도 입력 가능
+    const name = prompt("이름을 입력하세요.");
+    alert("환영합니다, " + name + "님");
+  confirm - alert 는 확인 버튼만 , confirm 확인 취소(결과 값 true, false)
+
+4. 형변환 
+  String() - 문자형으로 변환
+  Number() - 숫자형으로 변환, Number("문자")-> NaN, Number(null) -> 0 , Number(undefined) -> NaN
+             Number(0) -> false, Number('0') -> true, Number('') -> false, Number(' ') -> true
+  Boolean() - 불린형으로 변환, 0,",null,undefined,NaN -> false
+
+  prompt는 문자형으로 입력을 받음 
+  / 2 이런 식은 문자형은 자동 형변환이 이루어짐
+
