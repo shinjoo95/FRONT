@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>alert</title>
+    <link rel="stylesheet" href="alert.css">
+</head>
+<body>
+    <div class="alert-box" id="alert">
+        <p>Alert 박스</p>
+        <button onclick="document.getElementById('alert').style.display = 'none';">닫기</button>
+    </div>
+     <button onclick="알림창열기()">버튼</button>   
+    <!-- onclick -> 누르면 해당 내용을 실행해주세요 -->
+
+ 
+    <script>
+        //fuction을 쓰면 긴 코드를 깔끔하게 한 단어로 축약 가능
+        function 알림창열기(){
+            
+            document.getElementById('alert').style.display='block';
+        }
+
+        
+        
+
+    </script>
+</body>
+</html>
