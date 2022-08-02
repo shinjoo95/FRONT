@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>alert</title>
+    <link rel="stylesheet" href="alert.css">
+</head>
+<body>
+    <div class="alert-box" id="alert">
+        <p id="title">Alert 박스</p>
+        <button id="close">x</button>
+    </div>
+     <button onclick="알림창1열기('아이디입력하시오')">버튼1</button>   
+     <button onclick="알림창1열기('비밀번호입력하시오');">버튼2</button>   
+
+
+ 
+    <script>
+        //EventListener
+        //왼쪽 요소가 클릭이 되면 코드를 실행해주세요.                event (click, keydown, scroll, mouseover,,,)
+        document.getElementById('close').addEventListener('click', function(){
+
+            document.getElementById('alert').style.display = 'none';
+
+
+        });
+
+        function 알림창1열기(구멍){
+            //1. 제목 바꾸기
+            document.getElementById('title').innerHTML= 구멍;
+           
+            //2. 열기
+            document.getElementById('alert').style.display = 'block';
+        }
+        // function 알림창2열기(){
+        //     //1. 제목 바꾸기
+        //     document.getElementById('title').innerHTML= '비밀번호를 입력하세요';
+           
+        //     //2. 열기
+        //     document.getElementById('alert').style.display = 'block';
+        // }
+
+
+        
+        
+    </script>
+</body>
+</html>

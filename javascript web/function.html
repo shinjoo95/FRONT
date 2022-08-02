@@ -10,22 +10,33 @@
 <body>
     <div class="alert-box" id="alert">
         <p>Alert 박스</p>
-        <button onclick="document.getElementById('alert').style.display = 'none';">닫기</button>
+        <button onclick="알림창열기('block');">닫기</button>
     </div>
-     <button onclick="알림창열기()">버튼</button>   
+     <button onclick="알림창열기('none');">버튼</button>   
     <!-- onclick -> 누르면 해당 내용을 실행해주세요 -->
 
  
     <script>
         //fuction을 쓰면 긴 코드를 깔끔하게 한 단어로 축약 가능
-        function 알림창열기(){
+        function 알림창열기(구멍){
             
-            document.getElementById('alert').style.display='block';
+            document.getElementById('alert').style.display= 구멍; //parameter 함수 업그레이드
         }
 
+        알림창열기('block'); //함수를 쓸 때 () 아무거나 입력 가능
+        알림창열기('none');
         
-        
+      
+      
+        function plus(구멍){
+            2+구멍
+        }
+        plus(1); //2+1
+        plus(2); //2+2
+        plus(3); //2+3
+        //파라미터의 장점 : 함수 하나로 다양한 기능 실행 가능
 
+        
     </script>
 </body>
 </html>
