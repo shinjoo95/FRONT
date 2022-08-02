@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+</head>
+<body>
+    <!-- jquery cdn 
+         uncompressed : 원본 파일 / minified : 공백제거버전 / slim : 기능 많이 빠진 라이트 버전 
+         바디 밑쪽에 표시하는 게 제일 효율적임-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    
+    <h4 id="test" class="test1">안녕하세요</h4>
+
+    <script>
+
+        // document.querySelectorAll('#test')[0]
+        // document.getElementById('test').innerHTML = '???';
+        $('#test').html('안녕')  //#id
+        $('.test1') //.class
+        $('#test').css('color', 'red')
+
+
+
+    </script>
+
+
+
+    
+</body>
+</html>
