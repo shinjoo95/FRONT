@@ -1,0 +1,34 @@
+.profile{                              /* class selector */
+    width: 100px; 
+    display : block;
+    margin-left: auto; 
+    margin-right:auto;
+}
+
+.name{                                  
+
+    letter-spacing: 5px; 
+    font-size: 30px; 
+    text-align: center;
+}
+
+
+
+
+#special{                               /* id selector */
+    text-align: center; 
+    color : rgb(142, 80, 80); 
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+p{                                      /* tag selector */
+    text-align:center; 
+    font-weight: 600;
+}
+
+/* 
+    스타일이 겹칠 경우 우선순위에 따라 정해짐
+    style=""(html) - id - class - tag 순으로 적용됨 
+*/
