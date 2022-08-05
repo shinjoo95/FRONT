@@ -1,14 +1,26 @@
 git init - 깃 s/w 작업폴더를 감시하기 시작 , 코드를 짜거나 파일을 만들거나  
 git add 파일명 - 현재 상태를 기록해두려면 -> git commit-m '메모' 영구적으로 기록 
                 ex) git add 파일1 파일2... / git add .(모든 파일을 스테이징)
-git status - 상태창 열기, 어떤 파일들을 스테이징 했는 지, 어떤 파일들이 수정이 됐는 지 확인
-git log - commit한 내역들을 확인 가능 
 
     저장할 파일을 선택            선택한 파일을 영구 저장
 작업폴더 ----------> staging area ------------> repository(저장소)
         git add                  git commit
 
+git status - 상태창 열기, 어떤 파일들을 스테이징 했는 지, 어떤 파일들이 수정이 됐는 지 확인
+git log - commit한 내역들을 확인 가능 
+git branch - commit의 복사본 같은 느낌
+            git branch 브랜치명 (브랜치를 생성해줌) / git switch 브랜치명 (브랜치로 이동)
+            독립적인 작업이 가능하기 때문에 좀 더 안정적으로 개발 가능 
+git merge : branch들을 합치는 명령어 
+            기준 브랜치(master)로 이동한 뒤, merge
+                                                        conflict 발생 가능, 코드 고친 뒤
+            git switch main -------> git merge 합칠 브랜치명 ------------> git add. --------->git commit -m '메모'
+            error) 같은 파일 같은 줄을 변경 했을 시 충돌이 일어나서 수정해야됨, 원하는 코드만 남기고 삭제
+    
+    commit1 ----------> commit2 (main branch) ---------> commit2-1 (---- branch)
+
 git diff(tool) - 최근 commit vs 현재파일 차이점 보여붐  
                 j,k - 스크롤가능 / :q - 종료
                 git difftool 커밋 아이디 - 현재파일 vs 특정커밋 비교 가능, 커밋 아이디 두 개까지 가능
+    
                 
