@@ -54,6 +54,8 @@ p{                                      /* tag selector */
     display : block; 가로행을 전부 차지하게 하는 명령어 
     <div>,<p>,<h>은 속성을 가지고 있음
  */
+
+ /*layout.html*/
  .container{
     width : 800px;
  }
@@ -66,18 +68,23 @@ p{                                      /* tag selector */
     width:20%;
     height:400px;
     background: cornflowerblue;
-    float: left;                  /* 모든 div 태그는 display:block을 내장하고 있어, 가로를 다 차지함*/
-
+    /* float: left;                  모든 div 태그는 display:block을 내장하고 있어, 가로를 다 차지함 */
+    display: inline-block;
+    vertical-align: top;
 }
 .right{
     width:80%;
     height: 400px;
     background: coral;
-    float: left;
+    /* float: left; */
+    display: inline-block;    
+    /* display:block - 한 행을 전부 차지 
+     display : inline-block(내 크기만큼 차지) 공백제거 필요 / 주변에 글이 있으면 가끔 깨짐*/
 }
 .footer{
     width: 100%;
     height: 100px;
     background-color: grey;
-    clear: both;            /* 위 float 속성은 붕 떠있는 효과로 헤더 다음 순번으로 오기 때문에 사용*/
+    /* clear: both;            위 float 속성은 붕 떠있는 효과로 헤더 다음 순번으로 오기 때문에 사용 */
 }
+
