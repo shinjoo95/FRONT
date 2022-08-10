@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart</title>
+    <link href="/html/cart.css" rel="stylesheet">
+</head>
+<body>
+    <div>
+    <table>
+        <thead>
+            <tr>               <!-- 가로 행 -->
+                <th>1</th>     <!-- 제목용 세로 열 만들 때 -->
+                <td style="vertical-align: top">2</td>     <!-- 세로 열 -->
+                <!-- vertical-align: top 셀 안의 요소 상하정렬 -->
+                <td><p>1111</p><p>222</p></td>  
+            </tr>    
+        </thead>     <!-- 제목 행을 thead안에 일반 행은 tbody 안에 넣으면 좋음 / 기능차이x 분류를 위함-->
+        <tbody>
+        <tr>               
+            <th>1</th>     
+            <td>2</td>     
+            <td>3</td>
+        </tr>   
+        </tbody>  
+    </table>
+    </div>
+    <div>
+        <p style="font-size: 50px">shinjoo
+            <span style="font-size: 30px; vertical-align: top; ">주용</span></p>
+    </div>
+    <!-- 참고 : div 태그로 테이블만들기 -->
+    <div stlye="display: table">
+        <div style="display: table-row">
+            <div style="display: table-cell">21</div>
+            <div style="display: table-cell">12</div>
+    </div>
+</div>
+</body>
+</html>
+
+<!-- vertical-align : super (윗 첨자, 제곱) sub(아랫 첨자) <- 부모태그 필요 /top, middle, bottom
+    1. inline/inline-block 요소 간의 세로 정렬할 때 사용 
+    display:inline - 항상 옆으로 채워지는 폭과 너비가 없는 요소  -->

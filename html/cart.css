@@ -1,0 +1,7 @@
+td, th{
+    font-size: 70px;
+    border: 1px solid black;
+}
+table{
+    border-collapse: collapse;      /* <table>은 기본적으로 틈이 존재하기 때문에 없애주기 위해 사용*/
+}
