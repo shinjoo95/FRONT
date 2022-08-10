@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layoutTest</title>
+    <link href="/html/layoutTest.css" rel="stylesheet">
+</head>
+<body>
+    <div class="form-background">
+        <div class="form-white">
+            <form>
+                <div>
+                    <div class="w-100">
+                    <h3>Contact Us</h3>
+                    <p>Your Email</p>
+                    <input class="form-input" type="email" placeholder="email@example.com">
+                    </div>
+                    <div class="w-50">
+                        <p>First Name</p>
+                        <input class="form-input" type="text">
+                    </div>
+                    <div class="w-50">
+                        <p>Last Name</p>
+                        <input class="form-input" type="text">
+                    </div>
+                    <div style="clear:both"></div>
+                    <div class="w-100">
+                        <p>Message</p>
+                        <textarea class="form-input"></textarea>    <!-- class 재사용했는데 스타일이 더 필요하면 class를 추가하면 됨-->
+                    </div>
+                </div>
+                <div>
+                    <input id="sub" type="checkbox">
+                    <label for="sub">Subscribe</label>  <!-- label를 누르면 input도 누른것으로 간주-->
+                    <button class="yellow-button">SEND</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

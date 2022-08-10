@@ -1,0 +1,47 @@
+div, input, textarea{               /* selector 에서 콤마쓰면 중복선택가능 클래스명도 가능*/
+    box-sizing: border-box;
+}
+
+.form-background{
+    background-color: black;
+    padding:30px;
+}
+.form-white{
+    background-color: white;
+    padding:30px;
+    width: 80%;
+    max-width: 600px;
+    margin: auto;
+}
+
+.form-input{
+    width: 100%;            /* 실제 width는 100%+20px*/
+    padding:10px;
+    font-size: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    
+}
+.w-100{
+    width: 100%;
+    padding:10px;
+}
+.w-50{
+    width: 50%;
+    float: left;
+    padding:10px;
+}
+.yellow-button{
+    width: 100px;
+    color: white;
+    padding: 10px;
+    background: orange;
+    border: 5px;
+    border-radius: 10px;
+    display: block;
+    margin-left: auto;
+    float: right;
+}
+/* 1. 셀렉터에 콤마쓰면 여러개 동시 선택 가능
+   2. 재사용 가능하게 class 만들기
+   3. input 태그를 사용할 때 label태그 활용하기 */
