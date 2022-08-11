@@ -21,4 +21,35 @@
     border-bottom:1px solid #c2d3de;
     
 }
+.btn{
+    padding: 15px;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: coral;
+    color: white;
+    cursor: pointer;            /* 버튼 위에 놓으면 커서 모양이 바뀜 */
+}
+.btn:hover{     /* 마우스 올릴 때 스타일은 :hover (pseudo-class) */
+    background-color: chocolate;    /* 마우스를 올리면 이 색상으로 바뀌게 해주세요 */
 
+}
+.btn:focus{    /* 클릭 중 스타일은 :active */
+    background-color: brown;        /* 마우스를 클릭하면 이 색상으로 바뀌게 해주세요 */
+
+}
+.btn:active{
+    background-color: grey;    /* 커서 찍혀있을 때 스타일은 :focus */
+    border: 2px solid black;
+}
+/* :hover -> :focus -> active 넣을 땐 순서가 중요함 */
+.custom-link{
+    text-decoration: none;  /* 링크 밑줄 제거 */
+ 
+}
+.custom-link:link{  /* 방문 전 링크 색상 설정 */
+    color:aqua;
+}
+.custom-link:visited{   /* 방문 후 링크 색상 설정 */
+    color:black;
+}
