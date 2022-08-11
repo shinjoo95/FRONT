@@ -1,0 +1,27 @@
+/* utility class 
+    스타일 한두개만 들어있는 class 
+    생산성이 빨라짐 */
+.f-small{
+    font-size:12px;
+}
+.f-mid{
+    font-size:16px;
+}
+.f-lg{
+    font-size:20px;
+}
+.main-btn{                  /* 뼈대 */
+    padding:15px;
+    font-size:20px;
+    border:none;
+    cursor:pointer;
+}
+.bg-red{                    /* 살점 */
+    background : red;
+}
+.bg-blue{
+    background:blue;
+}
+/* Object Oriented CSS (OOCSS)장점 
+    : css양이 줄어들고, 유지보수가 편리하다. 재사용이 용이함
+        뼈대가 많을 수록 좋음 */

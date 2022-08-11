@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/html/overlap.css" rel="stylesheet">
+</head>
+<body>
+    
+    <button class="main-btn bg-red">버튼</button>       <!-- css중복이 많은 클래스는 뼈대용, 살점용으로 class 각각 제작 -->
+    <button class="main-btn bg-blue">버튼2</button>
+
+    <div class="profile">      <!-- class 작명이 어려우면 BEM(Block__Element--Modifier 룰)-->
+        <img class="profile__img">                           <!-- 덩어리이름__역할--세부특징 -->
+        <h4 class="profile__title"></h4>
+        <p class="profile__content"></p>
+        <button class="profile__button--red">버튼1</button>
+        <button class="profile__botton--blue">버튼2</button>
+    </div>
+</body>
+</html>
+<!-- react, vue 쓰면 덩어리(Component) 단위로 html 파일을 나눠서 코드를 짬
+    + Component에만 사용가능한 CSS 생성 가능-->
