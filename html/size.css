@@ -1,0 +1,14 @@
+/* 단위 더 알아보기
+    vw(viewport width) : 브라우저 폭에 비례
+    vh(viewport height) : 브라우저 높이에 비례 
+    rem : 기본 폰트사이즈에 비례 ( html폰트 사이즈의 10배 -> 16px 10배 -> 160px
+            모든 곳을 rem으로 크기 지정하면 기본 font-size 커져도 모든게 같이 커짐 
+            typography 디자인 할 때 px 외우기 귀찮을 때 사용   
+    em : 내 폰트 사이즈의 n배  */
+    
+
+.size{
+    width:50vw;
+    height:50vh;
+    background: grey;
+}
