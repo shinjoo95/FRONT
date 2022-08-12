@@ -1,0 +1,64 @@
+head 태그에 들어갈 내용 정리
+- 사이트 내에서 눈에는 보이지 않는 중요한 정보들이 들어가는 태그 
+
+    1. 각종 CSS 파일들
+    <head>
+        <link href="css/main.css" rel="stylesheet">
+    </head>
+        - 링크 태그를 집어 넣을 수 있습니다. 
+        css/main.css : html파일과 같은 경로에 있는 css라는 폴더 내의 main.css파일을 의미 (상대 경로)
+        /css/main.css : 현재 사이트의 메인경로부터 시작해서 파일을 첨부해라 라는 뜻 
+                        /이 처음부터 붙어있으면 싸이트 메인경로부터 시작해라~ 라는 의미 (절대 경로)
+
+    2. style 태그 
+    <head>
+        <style>
+            .button{
+                color:red;
+            }
+        </style>
+    </head>
+        - <body>안에 넣어도 동작하지만 Html 파일안의 코드는 위에 있을 수록 먼저 읽기 때문에 맨 밑 곳에 두면 
+            사이트 로딩시 스타일이 잠깐 깨질 수 있습니다. 웬만하면 head 태그에 넣기! 
+
+    3. 사이트 제목(브라우저 탭에 뜨는 이름)
+    <head>
+        <title>네이버</title>
+    </head>
+    
+    4. 여러가지 meta태그 
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="신주용입니다.">
+        <meta name="keywords" content="HTML,CSS,JavaScript,자바스크립트,코딩">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+        1. 인코더 형식을 지정할 때 charset="UTF-8"이라고 속성을 적을 수 있습니다.
+        2. 사이트의 검색 결과 화면에 뜨는 글귀를 수정하고 싶으면 이런 속성을 추가할 수 있습니다.
+            name="description" content="...."
+            description은 구글 검색 시 파란 제목으로 뜨는 글귀,
+            keywords 는 검색에 도움을 주는 키워드입니다.
+        3. 사이트 초기 zoom레벨이나 폭을 지정해주려면 name="viewport"라는 속성을 부여하면 됩니다.
+            width=device-width는 모바일 기기의 실제 폭으로 렌더링 해주세요~ 라는 뜻입니다.
+            실제 접속 시 스마트폰 기기의 실제 가로폭을 보고 렌더링하라고 명령하는 부분입니다.
+            intial-scale=1 은 접속 시의 화면 줌레벨 설정입니다.
+
+    5. open graph
+    <head>
+        <meta property="og:image" content="/이미지경로.jpg">
+        <meta property="og:description" content="사이트설명">
+        <meta property="og:title" content="사이트제목">
+    </head>
+        - 페이스북이 만든 og라는 태그입니다.
+            링크 같은 걸 공유하면 박스가 뜨고 사이트 설명, 제목, 이미지가 뜹니다. 
+            박스를 커스터마이징하고 싶으면 메타태그를 따로 집어 넣으면 됨.
+
+    6. Favicon
+    <head>
+        <link rel="icon" href="아이콘경로.ico" type="image/x-icon">
+    </head>
+        - 웹 사이트 제목 옆에 뜨는 아이콘을 커스터마이징하려면 링크태그로 첨부하면 됨
+        - ico 대신 png 파일로 넣어도 되지만 ico가 호환성은 가장 좋음
+        - 32 X 32 사이즈
+        
