@@ -1,0 +1,13 @@
+.flex-item{
+
+    margin-right: 10px;
+    color: white;
+    font-size:20px;
+}
+.flex-container{
+    display:  flex;
+    height: 50px;
+    align-items: center;
+    background: orange;
+    padding:5px;
+}

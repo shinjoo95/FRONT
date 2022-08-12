@@ -1,0 +1,15 @@
+.flex-item{
+    width:200px;
+    height: 100px;
+    background-color: grey;
+    margin: 5px;
+}
+.flex-container{            /* 가로 배치할 요소의 부모태그에 display:flex;*/
+    display: flex;
+    justify-content: center;      /* 정렬 가능 center, flex-end, flex-start */
+    flex-direction: column;         /* 가로 세로 배치 colum 세로 row 가로 */
+    flex-wrap: wrap;                /* width 크면 밑으로 보내고 싶을 때 */
+    align-items: center;            /* 상하 정렬 */
+}
+/* flex 특징 
+    1. 실질적인 크기가 아니라 최대한 차지하려고 노력 */
