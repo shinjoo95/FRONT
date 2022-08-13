@@ -33,17 +33,36 @@
         <div style="clear: both;"></div>
     </div>
 
-    <!-- animation -->
+    <!-- animation 만드는 step
+        1. 시작스타일 만들기(애니메이션 동작 전)
+        2. 최종스타일 만들기(애니메이션 동작 후) 
+        3. 언제 최종스타일로 변하는 지 
+        4. transition 으로 애니메이션 -->
     <div class="shop-bg">
         <div class="shop-container">
             <div class="shop-item">
+                <div style="position: relative">
+                <div class="overlay-wrap">
+                    <div class="overlay-black"><p>$60</p></div> 
+                </div>             
                 <img src="/image/product1-1.jpeg">
+                </div>
             </div>
             <div class="shop-item">
+                <div style="position: relative">
+                    <div class="overlay-wrap">
+                        <div class="overlay-black"><p>$80</p></div> 
+                    </div>      
                 <img src="/image/product2.jpeg">
+                </div>
             </div>
             <div class="shop-item">
-                <img scr="/image/product3.jpeg">
+                <div style="position: relative">
+                    <div class="overlay-wrap">
+                        <div class="overlay-black"><p>$55</p></div> 
+                    </div>       
+                <img src="/image/product3.jpeg">
+                </div> 
             </div>
         </div>
     </div>

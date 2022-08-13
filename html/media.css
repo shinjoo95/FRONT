@@ -40,3 +40,57 @@
 }
 /* media query 문법은 항상 맨 밑에 있어야 작동이 잘 됨*/
 
+.shop-bg{
+    background-color: #eee;
+    padding : 20px;
+}
+.shop-container{
+    display: flex;
+    width: 90%;
+    margin: auto;
+}
+.shop-item{
+    width:33%;
+    padding : 10px;
+}
+.shop-item img{
+    width: 100%;
+    display:block;
+}
+.overlay{
+    position: absolute;
+    width:100%;
+    height:100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;             /* 투명도 설정*/
+    transition : all 1s;    
+    /* 위에 있는 스타일이 변하면 1초동안 서서히 변경해주세요 */
+    /* transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1); 
+        애니메이션 타이밍 설정 가능 */
+}
+.overlay:hover{
+    opacity: 1;
+}
+/* 대부분 CSS 애니메이션은 hover가 거의 최대임 */
+.overlay-wrap{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* 넘치는 부분은 가려줌 */
+}
+.overlay-wrap:hover .overlay-black{
+    margin-top: 50%;
+
+}
+
+.overlay-black{
+    width:100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    margin-top: 100%;
+    transition: all 1s;
+    color: white;
+    font-size: 30px;
+    padding: 0px 63px;
+    
+}
