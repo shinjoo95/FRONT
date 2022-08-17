@@ -57,7 +57,7 @@ main{
     width:100%;
     height:100vh;
     color:white;
-    background:linear-gradient(rgba(0, 0, 0, 0.502),rgba(0,0,0,1)),url('/test/image/me.jpeg')center center;
+    background:linear-gradient(rgba(0, 0, 0, 0.502),rgba(0,0,0,1)),url('/portfolio/image/me.jpeg')center center;
     background-size:cover;
     display:flex;
     justify-content: center;
