@@ -1,0 +1,20 @@
+BootStrap 쓰는 이유 : HTML CSS 개발시간 단축 (복붙하면 끝)
+                    BootStrap은 뼈대 디자인할 때 유용함 
+                    CSS 파일 넣고 커스텀 디자인을 입히면 됨 
+                    개발시간을 단축하는 Utility class가 제공됨 (mt-3 / margin-top: 3;)
+                    반응형 레이아웃을 만들 때 Bootstrap 매우 편리 
+                
+                단점 : 결국 커스텀 스타일을 넣어야 될 경우가 많음 
+                      용량이 좀 큼 200KB
+    
+    BootStrap 5.X 는 IE12+(Edge)
+    Bootstrap 4.X 는 IE11+
+    BootStrap 3.X 는 IE9 + 
+
+
+    <div class="row">   - 내부를 12칸으로 쪼개주는 class 명
+    <div class="col-n"> - 가로로 쪼개고 싶으면 col - n만큼 차지할 크기 
+    <div class="col-md-6"> - 반응형 조건문 (grid) / @media 문법없이도 반응형 레이아웃을 사용 가능 
+    <div class="col-4 order-1"> - order-숫자 부착해서 <div> 순서 재배치도 가능 / 조건식도 사용 가능 order-md-1 : md 사이즈 이상에서만 적용해주세요
+        - col 클래스는 여러개 사용 가능 
+         Bootstrap 사용할 땐 모바일레이아웃을 먼저 만들면 쉬움
