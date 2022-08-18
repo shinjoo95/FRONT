@@ -1,0 +1,12 @@
+.box li {
+  list-style: none;
+  padding: 15px;
+  border: 1px solid #eee;
+}
+.box .active {
+  background: skyblue;
+  color: white;
+}
+.box > li:hover {
+  background: blue;
+}/*# sourceMappingURL=test1.css.map */

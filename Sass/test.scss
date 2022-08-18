@@ -1,0 +1,76 @@
+
+//변수 설정
+$메인컬러 : #2a4cb2;
+$서브컬러 : #eeeeee;
+$기본사이즈 : 16px;
+
+.background{
+    background-color: #2a4cb2;
+    font-size: ($기본사이즈 - 2px);
+}
+.box{
+    color: $메인컬러;
+    font-size: ($기본사이즈 + 2px);
+}
+
+//nesting 문법
+.main-bg h4{
+    font-size:16px;
+}
+.main-bg button{
+    color : red;
+}
+.main-bg{                    //nesting 
+    h4{
+        font-size:16px;
+    }
+    button{
+        color:red;
+    }
+}
+
+//@extend 문법
+.btn-green{
+    width: 100px;
+    height: 100px;
+    padding: 20px;
+    color:green;
+}
+.btn-red{
+    width: 100px;
+    height: 100px;
+    padding: 20px;
+    color:red;
+}
+%btn{               //% <- 임시 클래스 생성
+    width: 100px;
+    height: 100px;
+    padding: 20px;
+}
+.btn-green{
+    @extend %btn;
+    color:green;
+}
+.btn-red{
+    @extend %btn;
+    color: red;
+}
+
+//@mixin 문법
+@mixin 폰트스타일($구멍, $구멍2){           //안에 긴 코드를 폰트스타일()으로 축약해주세요, 
+    font-size: $구멍;                   //구멍자리에 $구멍을 넣어주세요 
+    letter-spacing: -1px;
+//  #{ $구멍2 } : 1px;  <-- 글자 중간에 $변수나 $파라미터 넣을 때 사용
+}
+
+h2{
+    font-size: 30px;
+    letter-spacing: -1px;
+}
+h3{
+    @include 폰트스타일(40px);
+}
+
+//import 문법
+@use 'reset';   //reset.scss에 있던 내용을 가져와주세요~
+//참조 파일의 변수도 사용 가능 reset.$메인칼라;

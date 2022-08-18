@@ -1,0 +1,17 @@
+//css 문법으로 쭉 작성하고 축약하는 연습하기 
+
+.box{
+    li{
+    list-style: none;
+    padding:15px;
+    border: 1px solid #eee;
+    }
+    .active{
+        background: skyblue;
+        color:white;
+    }
+    >li:hover{
+        background: blue;
+    }
+}
+
