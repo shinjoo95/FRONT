@@ -1,0 +1,24 @@
+<!-- 특정 요소가 다른 상태일 때(마우스가 올려진 or 마우스 클릭... 다른 스타일을 줄 수 있음 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pseudo</title>
+    <link href="/html/pseudo.css" rel="stylesheet">
+</head>
+<body>
+    <div class="explain-box">
+        <h4>shinjoo</h4>
+        <p class="pseudo">I wanna be a Front-end Developer</p>
+    </div> 
+    <!-- Shadow DOM 때문에 박스 두개가 생김 (버튼 , 글자(선택된 파일 없음))
+        검사 -> 설정 -> DOM 보기 -->
+    <input type="file">
+    <input type="file" class="input-file">   
+    <input placeholder="안녕하세요">
+    <input type="range">
+    <progress value="0.5"></progress>
+</body>
+</html>

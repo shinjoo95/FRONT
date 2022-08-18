@@ -1,0 +1,74 @@
+
+/* :pseudo-class(다른 상태일 때) 
+   ::pseudo-element(내부의 일부분만 스타일 줄 때)
+   
+   ::after (맨 뒤에 무언가 집어넣고 싶을 때)
+   ::before(맨 앞에 무언가 집어넣고 싶을 때)*/
+
+.pseudo::first-letter{          
+    color: red;
+    font-size: 30px;
+
+
+}
+.pseudo::before{
+    content: '안녕 ';
+}
+
+/* float 사용시 <div style="clear: both; float:none"></div>
+    를 입력하면 좋지만 Html 파일에 추가할 수도 있지만 
+    class::after{
+        display:block;
+        clear:both;
+        floatL none;
+    } 으로 추가 가능 */
+.input-file::file-selector-button{
+    background: skyblue;
+    border: none;
+    padding: 20px;
+}
+.input-file::file-selector-button:hover{
+    background: blue;
+}
+
+/* 타입: 파일 스타일 변경 방법 
+    webkit : 크롬, 사파리, edge 에서만 적용되는 스타일
+    ms : explorer 에서만 적용
+    moz : firefox에서만 적용  */
+input[type=file]::-webkit-file-upload-button{
+    background: black;
+    color:white;
+    border:none;
+}
+
+input::placeholder{
+    color:red;
+}
+
+/* html에 없을 시  아래 쪽 user agent stylesheet도 확인
+    appearance : none;  브라우저 기본 CSS 안보이게 해주세요 */
+
+input[type=range]{              
+    appearance:none;
+}
+
+input[type=range]::-webkit-slider-thumb{
+    appearance: none;
+    background: red;
+    width:50px;
+    height:50px;
+}
+progress{
+    appearance: none;
+    
+}
+progress::-webkit-progress-bar{
+ 
+    background: black;
+    width: 200px;
+    height: 90px;
+}
+progress::-webkit-progress-value{
+
+    background: aqua;
+}
