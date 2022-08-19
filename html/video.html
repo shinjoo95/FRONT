@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <video controls autoplay muted> <!-- chrome 정책상 muted를 꼭 써야 자동재생이 됨 -->
+    <!-- preload="none" 미리다운 X / preload="auto" 미리다운 o/ preload="metadata 미리다운 적당히(썸네일정도)"
+        poster="경로" 썸네일 이미지 / loop 무한 반복 재생 -->
+        <source src="/image/bridge.mp4" type="video/mp4"> <!-- source 호환성을 챙길 수 있음 -->
+    </video>
+    <audio controls muted>
+        <source src="/image/bass.mp3">
+    </audio>
+    
+</body>
+</html>
