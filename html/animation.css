@@ -1,0 +1,128 @@
+body{
+    padding : 0px;
+    margin: 0px;
+}
+.ani-text{
+    text-align: center;
+    margin: 0px;
+    padding:20px
+
+}
+.ani-text:hover{
+    animation-name: 왕복;
+    animation-duration: 1s;     /* 진행 시간 */
+}
+/* transition은 a->b 이런 것만 가능 */
+/* transform 은 성능이 좋음 매우 부드러움 
+    transform 변경보다 margin 변경이 느림 
+/* @keyframes 진행도에 따라 어떤 스타일을 넣을지만 기입하면 됨*/
+
+/* 복잡한 애니메이션 정의 
+    0%일 때의 상태 50프로 진행됐을 때의 상태 100프로일때 상태*/
+@keyframes 왕복{
+    0%{
+        transform: translatex(0px);
+
+    }
+    50%{
+        transform: translateX(-100px);
+
+    }
+    75%{
+        transform: translateX(100px);
+
+    }
+    100%{
+        transform: translateX(0px);
+
+    }
+}
+/* aniamtion-delay : 딜레이 양 / animation-iteration-count : 반복횟수 
+   animation-timing-function : 베지어 */
+
+.ani-button{
+    width: 100px;
+    height: 50px;
+    margin: auto;
+    display: block;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(73, 87, 87);
+    color: white;
+    font-size: 15px;
+}
+.ani-button:hover{
+    animation-name: 흔들;
+    animation-duration: 0.5s;
+}
+
+@keyframes 흔들{
+    0%{
+        transform: rotate(-10deg);
+    }
+    33%{
+        transform: rotate(10deg);
+    }
+    66%{
+        transform: rotate(-10deg);
+    }
+    100%{
+        transform:rotate(0deg);
+    }
+
+}
+
+.ani-plus{
+    font-size: 100px;
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+}
+.ani-plus:hover{
+    animation-name: 회전;
+    animation-duration: 2s;
+    animation-fill-mode: forwards; /* 끝나도 유지 */
+}
+
+@keyframes 회전{
+    50%{
+        transform: rotate(-30deg);
+    }
+    100%{
+        transform: rotate(30deg) scale(1.5);      
+    }    
+}
+
+.ani-navbar{
+    background: grey;
+    width: 150px;
+    color: white;
+    height: 100%;
+    padding: 25px;    
+    position: fixed;
+    z-index: 5;
+    text-align: right;   
+    transform: translateX(-125px); 
+    transition: all 1s;
+}
+.ani-navbar:hover{
+    transform: translateX(0px); 
+    text-align: center;
+}
+@keyframes slide {
+    0%{
+        transform: translateX(-150px)
+    }
+    50%{
+        transform: translateX(20px) skewX(-30deg)
+    }
+    100%{
+        transform: translateX(0px)
+    }
+}
+.ani-navbar:hover p{
+    animation-name: slide;
+    animation-duration: 1s;
+}
+
+
