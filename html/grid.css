@@ -1,0 +1,31 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px;      /* 세로칸 갯수 & 사이즈 */
+    /* fr 단위로 폭지정 가능 세로는 height 속성이 있어야 사용 가능 */
+    grid-template-rows: 100px 100px 100px;           /* 가로칸 갯수 & 사이즈 */
+    /* grid-gap: 10px;    간격 */
+    /* grid-template-areas: 
+    "헤더 헤더 헤더 헤더"
+    "사이드 . . . "
+    "사이드 . . . "; */
+}
+.grid-container div{
+    border: 1px solid black;
+}
+.grid-nav{
+    grid-column: 1/5; /*display:grid 자식들에만 사용  세로선 1~4만큼 차지해주세요*/
+    
+}
+.gird-sidebar{
+    grid-row: 2/4;
+}
+
+/* 자식에 이름쓰고 부모는 색칠하기
+    자식에 이름쓰려면 grid-area 
+.grid-nav{
+    grid-area: 헤더;
+}
+.gird-sidebar{
+    grid-area: 사이드;
+}
+*/
