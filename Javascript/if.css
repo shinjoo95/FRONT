@@ -1,0 +1,26 @@
+.black-bg {
+    width : 100%;
+    height : 100%;
+    position : fixed;               /* 맨 앞 적용 */
+    background : rgba(0,0,0,0.5);
+    z-index : 5;                    /* 맨 앞 적용 */
+    padding: 30px;
+    visibility: hidden;             /* 애니메이션줄 때 display: none 대용 */
+    opacity: 0;
+    transition: all 1s;
+  }
+  .white-bg {
+    background: white;
+    border-radius: 5px;
+    padding: 30px;
+    
+  } 
+  .show-modal{
+    visibility: visible;   
+    opacity: 1;
+  }
+
+.main-bg{
+    padding: 100px 20px;
+    background: lightgrey;
+}
