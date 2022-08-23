@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="if.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="black-bg">
+        <div class="white-bg">
+          <h4>로그인하세요</h4>
+          <form action="success.html">  <!-- <form>은 서버로 유저정보 전송하려고 쓰는 것임 -->
+            <div class="my-3">
+              <input type="text" class="form-control">
+             </div>
+             <div class="my-3">
+               <input type="password" class="form-control">
+             </div>
+             <button type="submit" class="btn btn-primary" id="send">전송</button>
+             <button type="button" class="btn btn-danger" id="close">닫기</button>
+          </form> 
+          
+        </div>
+      </div> 
+    <div class="main-bg">
+        <h4>Shirts on Sale</h4>
+        <button id="login" class="btn btn-danger">로그인</button>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+
+        $('#login').on('click',function(){
+            $('.black-bg').addClass('show-modal');
+        })        
+
+      </script>
+      <script>
+        // 조건문 : 조건이 충족될 때 코드를 실행하고 싶을 경우 사용
+        // if(조건){
+        //     조건이 참일 때 실행할 코드
+        // }else{
+        //     위 조건이 참이 아닐 때 실행할 코드
+        // }
+        //
+        // 전송버튼 누르면 저기 input에 입력한 값이 공백이면(조건문) 알림창 띄워주세요 
+        $('send').on('click', func)
+        
+
+
+        
+      </script>
+</body>
+</html>
