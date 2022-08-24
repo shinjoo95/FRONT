@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link href="if.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
+    <!-- modal 창 -->
     <div class="black-bg">
         <div class="white-bg">
           <h4>로그인하세요</h4>
@@ -28,6 +30,17 @@
         <h4>Shirts on Sale</h4>
         <button id="login" class="btn btn-danger">로그인</button>
     </div>
+    
+    <!-- 토글 -->
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <span class="navbar-brand">Navbar</span>
+          <span class="badge bg-dark">Dark 🔄</span>
+          <button class="navbar-toggler" type="button">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav> 
 
 
 
@@ -35,6 +48,7 @@
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
 
+        //modal 창 
         $('#login').on('click',function(){
             $('.black-bg').addClass('show-modal');
         })        
@@ -64,6 +78,7 @@
             
         })
 
+        // 조건문 
         if(1 == 3){
             console.log('틀려요');
         }else if (3 == 3){
@@ -80,6 +95,34 @@
             console.log('안녕')
         })
 
+        //변수 
+        //자료 잠깐 저장하는 변수 문볍 : var 변수명 = 넣을자료; 
+        //let, const 문법 전부 변수 생성 가능, 대신 재선언 불가, 범위는 중괄호 
+        //var       function-scoped     재선언O     재할당O
+        //let       {Block-scoped}      재선언X     재할당O
+        //const     {Block-scoped}      재선언X     재할당X
+        //변수를 쓰는 이유 : 길고 복잡한 자료들 저장 가능, 특정 값을 기억하게 만들 때 사용
+        // var 나이; 변수 선언, 나이 = 20; 변수 할당  
+        // 함수 안에서 변수를 만들었을 경우 함수 안에서만 사용이 가능함, 반대로 함수 바깥에서 만든 변수는 함수 안에서 사용 가능        
+        var 나이 = 20;          
+        var 이름 = '신주용';
+        console.log(나이);
+        console.log(이름);
+        
+        
+        //토글
+        //배지 1회 클릭시 내부 글자를 라이트로 변경 (클릭 횟수가 홀수면)
+        //배지 2회 클릭시 내부 글자를 다크로 변경   (클릭 횟수가 짝수면)
+        //배지 3회 클릭시 내부 글자를 라이트로 변경...
+        var count = 0;
+        $('.badge').on('click', function(){
+            count++;
+            if(count % 2 == 1){
+                $('.badge').html('light');
+            }else{
+                $('.badge').html('black');
+            }
+        })        
         
       </script>
 </body>
