@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //369
+        function 삼육구게임(num){
+            if(num % 3 == 0){
+                console.log('박수')
+            }else {
+                console.log('통과')
+            }
+        }
+        삼육구게임(15);
+
+        function 삼육구게임1(num){
+            if(num % 9 == 0){
+                console.log('박수x2')
+            }else if(num % 3 == 0){
+                console.log('박수')
+            }else{
+                console.log('통과')
+            }
+        }
+        삼육구게임1(18);
+
+        //시험 합격여부
+        function 시험(num1, num2){
+            if(num1 < 40 || num2 <40){
+                console.log("불합격")
+            }else if(num1+num2 >= 120){
+                console.log("합격")
+            }else {
+                console.log("불합격")
+            }
+        }
+        시험(70, 70);
+        시험(30, 100);
+        시험(50, 50);
+    </script>
+</body>
+</html>
