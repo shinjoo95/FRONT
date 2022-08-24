@@ -13,10 +13,10 @@
           <h4>로그인하세요</h4>
           <form action="success.html">  <!-- <form>은 서버로 유저정보 전송하려고 쓰는 것임 -->
             <div class="my-3">
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" id="email">
              </div>
              <div class="my-3">
-               <input type="password" class="form-control">
+               <input type="password" class="form-control" id="pw">
              </div>
              <button type="submit" class="btn btn-primary" id="send">전송</button>
              <button type="button" class="btn btn-danger" id="close">닫기</button>
@@ -49,7 +49,29 @@
         // }
         //
         // 전송버튼 누르면 저기 input에 입력한 값이 공백이면(조건문) 알림창 띄워주세요 
-        $('send').on('click', func)
+        $('form').on('submit', function(e){
+            if(document.getElementById('email').value == ''){
+                e.preventDefault();
+                alert('아이디를 입력하세요.')
+            }
+            if(document.getElementById('pw').value == ''){
+                alert('비밀번호를 입력하세요.')
+            }
+            if(document.getElementById('pw').value.length < 6){
+               
+                alert('비밀번호가 짧습니다.')
+            }
+            
+        })
+        
+
+        if(1 == 3){
+            console.log('틀려요');
+        }else if (3 == 3){
+            console.log('맞아요1');
+        }else if(4 == 3){
+            console.log('틀려요1');
+        }
         
 
 
