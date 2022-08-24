@@ -63,7 +63,6 @@
             }
             
         })
-        
 
         if(1 == 3){
             console.log('틀려요');
@@ -72,8 +71,14 @@
         }else if(4 == 3){
             console.log('틀려요1');
         }
+
         
 
+        //input 태그 이벤트 : input에 입력한 값이 바뀔 때 뭔가 실행 
+        //change 이벤트는 <input>에 입력한 값이 바뀌고 포커스를 잃을 때 발생 
+        document.getElementById('email').addEventListener('input', function(){
+            console.log('안녕')
+        })
 
         
       </script>
