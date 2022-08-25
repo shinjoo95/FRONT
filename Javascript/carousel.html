@@ -1,0 +1,85 @@
+<!-- 슬라이드 되는 UI 
+    one-way 애니메이션 들어있는 UI만들기
+    1. 시작화면 만들기
+    2. 최종화면 만들기
+    3. 원할 때 최종화면으로 변하게 JS
+    4. trasition:all 1s; 추가 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="carousel.css" rel="stylesheet">
+    <title>carousel</title>
+</head>
+<body>
+    <!-- 1. 시작화면 만들기 -->
+    <div style="overflow: hidden"> <!-- 넘치는 부분 숨기기 -->
+    <div class="slide-container">
+        <div class="slide-box">
+            <img src="/Javascript/img/bus.png">
+        </div>
+        <div class="slide-box">
+            <img src="/Javascript/img/car.png">
+        </div>
+        <div class="slide-box">
+            <img src="/Javascript/img/motor.png">
+        </div>
+    </div>
+</div> 
+    <!-- 2. 버튼2 누른 후 최종화면 만들기 -->
+    <button class="slide-1">1</button>
+    <button class="slide-2">2</button>
+    <button class="slide-3">3</button>
+    <button class="next">다음</button>
+    <button class="before">이전</button>
+</body>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+    // 3. 버튼1 누르면 첫 화면으로 변하게 해주세요.
+    $('.slide-1').on('click', function(){
+        // transform: translateX(-100vw)    script로 변경
+        $('.slide-container').css('transform', 'translateX(0vw)')
+    })
+    $('.slide-2').on('click', function(){
+        $('.slide-container').css('transform', 'translateX(-100vw)');
+    })
+    $('.slide-3').on('click', function(){
+        $('.slide-container').css('transform', 'translateX(-200vw)')
+    })
+
+    // 다음버튼 기능 만들기 
+    // 다음버튼 누르면 지금 보이는 사진이 1 -> 2, 2 -> 3, 3 -> 1
+    // var 지금사진 = 1;
+    
+    // $('.next').on('click', function(){
+    //     if(지금사진 == 1){
+    //         $('.slide-container').css('transform', 'translateX(-100vw)');
+    //         지금사진++;
+    //     }else if(지금사진 == 2){
+    //         $('.slide-container').css('transform', 'translateX(-200vw)');
+    //         지금사진++;
+    //     }
+    // });
+    //최적화 버전 응용 
+    var 지금사진 = 1;
+    $('.next').on('click', function(){
+        $('.slide-container').css('transform', 'translateX(-'+ 지금사진 + '00vw)');
+        지금사진++;
+    });
+    
+    // 이전 버튼 기능 만들기
+    let 이전사진 = 1;
+    $('.before').on('click', function(){
+        $('.slide-container').css('transform', 'translateX(+' + 이전사진 +'00vw)')
+        이전사진--;
+    })
+
+
+</script>
+</html>

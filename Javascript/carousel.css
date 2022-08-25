@@ -1,0 +1,16 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+.slide-container{
+    width: 300vw;       /* 브라우저폭 == 100vw , 폭의 3배 */
+    transition: all 1s;
+    /* transform: translateX(-100vw);  애니메이션 동작 시 margin-left 보다 부드러움 */
+}
+.slide-box{
+    width: 100vw;
+    float: left;
+}
+.slide-box img{
+    width: 100%;
+}
