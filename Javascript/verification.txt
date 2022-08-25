@@ -1,0 +1,63 @@
+문자 검사하기 
+    1. '문자'.includes('찾을 단어')
+        - 문자에 찾을 단어가 들어있는 지 검사해주고 있으면 true / 없으면 false
+        - 단점 : 한글이 있나, 영어가 있나, A로 끝나나, 마침표 다음에 영어가 있나, 이런 건 검사하기 어려움 
+
+    2. 정규표현식(regular expression)
+        - 문자를 검사하고 싶을 때 사용하는 식 / 어떤 문자에 'abc'라는 단어가 포함되어 있나를 물어보는 식
+            - /abc/
+                - /abc/.test('abcdef')
+
+            - /a/.test('abcde')     //true
+                - 영어나 한글의 경우 그냥 쓰면 글자가 있는 지 없는 지 확인 가능 
+            
+            - /[a-d]/.test('aefg')      //true
+              /[가-다]/.test('다라마바')   //true
+                - [] 기호를 이용하여 문자의 범위를 지정할 수 있음 , [a-z]는 a부터 z까지의 아무문자 하나를 의미.
+
+            - /[a-zA-Z]/.test('반가워요')       //false
+            - /[a-zA-Z]/.test('반가워요a')      //true
+            - /[ㄱ-ㅎ가-힣ㅏ-ㅣ]/.test('반가워요') //true
+                - [a-zA-z] 모든 알파벳 하나라는 뜻, [ㄱ-ㅎ가-힣ㅏ-ㅣ] 모든 한글 하나라는 뜻
+
+            - /\S/.test('abcde')        //true
+                - 백슬래쉬 \S는 특수문자 포함 아무문자 1개라는 뜻
+
+            - /^a/.test('abcde')        //true
+            - /e$/.test('abcde')        //true
+                - ^a면 a로 시작하는 지 검사, e$면 e로 끝나는 지 검사 
+
+            - /(e|f)/.test('abcde')     //true
+                - | 은 or 기호, e 또는 f 중 하나라도 있으면 true
+
+            - /a+/
+                - + 기호를 붙여주면 뒤에 오는 글자들고 a와 일치하면 반복해서 쭉 찾아달라는 뜻
+                  /a/는 a 한개를 찾으라는 뜻, ex) aaaaa를 찾고 싶으면 /a+/ 를 사용 
+
+            - /\S+t/
+                - 모든 문자 여러개 다음에 t라는 글자가 있나 검사
+                - ex) aaaaat, bbt
+
+            - /\S+@\S+\.\S+/  <-- 간단한 이메일 정규식
+                - \. 마침표는 정규식에서 특수한 문법이기 때문에 마침표 문법을 쓰는게 아니라 진짜 마침표를 찾아달라는 의미로 써야됨 
+
+            - 폼 전송시 이메일 형식 검증
+                - $('form').on('submit', function(e){
+                    var 입력한 값 = document.getElementById('email').value;
+                    if( /\S+@\S+\.\S+/.test(입력한값)){
+                        alert('이메일 형식아님')
+                        e.preventDefault();
+                    }
+                })
+                    - form 전송시 유저가 <input>에 입력한 걸 찾아서 
+                        정규식으로 이메일 테스트했을 때 false가 나오면 폼 전송을 막거나 alert()를 띄워주거나.
+
+            - 폼 전송 시 유저가 입력한 비번에 영어 대문자가 적어도 1개 있는 지 확인
+                - $('form').on('submit', function(e){
+                    var 비번 = document.getElementById('pw').value;
+                    if(/[A-Z]/.test(비번) == false){
+                        alert('대문자를 포함시켜주세요')
+                    }
+                }
+                    - 패스워드 <input>에 id="pw" 부여하여 셀렉터로 입력값을 찾음
+                         ./[A-Z].test(비번) 이걸 해서 false가 남으면 alert 띄움 
