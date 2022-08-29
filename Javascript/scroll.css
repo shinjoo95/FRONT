@@ -1,0 +1,8 @@
+.navbar{
+    position: fixed; /* 상단 고정 */
+    width: 100%;
+    z-index: 5;      /* 우선 순위 뒤로 */
+}
+.navbar-brand{
+    font-size: 20px;
+}

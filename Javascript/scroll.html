@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="scroll.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 스크롤바 내리면 로고 작게 만들기 -->
+    <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <span class="navbar-brand">Navbar</span>
+      <button class="navbar-toggler" type="button">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav> 
+    </div>
+
+  <div style="height: 1000px;"></div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        window.addEventListener('scroll', function(){       //window : html page의미 
+        //console.log(1);  1만큼 내렸을 때 출력
+        console.log(window.scrollY); //유저가 얼마나 세로 스크롤바를 내렸나 
+        window.scrollto(0,100); //강제로 원하는 곳까지 스크롤 window.scrollTo(x,y)
+        window.scrollBy(0,100); //현재 위치부터 강제로 스크롤 하기 
+        });
+
+        $(window).on('scroll', function(){
+            $(window).scrollTop(100)               //window.scrollY() 같음 
+        })
+    </script>
+</body>
+</html>

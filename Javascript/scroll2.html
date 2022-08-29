@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 회원약관을 다 읽었을 시 알림창 띄우기 -->
+    <div class="lorem" style="width: 200px; height: 100px; overflow-y: scroll"> 
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+         Quae voluptas voluptatum minus praesentium fugit debitis at, 
+         laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, 
+         eligendi quae consectetur praesentium exercitationem.
+      </div> 
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+      <script>
+
+        //div의 스크롤바 내린 양 + 눈에 보이는 div 박스 높이(스크롤바 높이) == div의 실제 높이 ----> alert 띄우기 
+        //오차가 발생할 수 있어서 몇 px 정도 여유를 두고 하는 게 좋음 
+        $('.lorem').on('scroll',function(){
+            var 스크롤양 = document.querySelector('.lorem').scrollTop;      //<div> 스크롤바 내린 높이는 셀렉터.scrollTop
+            var 실제높이 = document.querySelector('.lorem').scrollHeight;   //<div> 실제 높이는 셀렉터.scrollHeight
+            var 높이 = document.querySelector('.lorem').clientHeight;      //눈에 보이는 div 박스 높이
+            console.log(스크롤양, 실제높이);
+        })
+      </script>
+</body>
+</html>
