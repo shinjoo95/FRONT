@@ -4,5 +4,6 @@
     z-index: 5;      /* 우선 순위 뒤로 */
 }
 .navbar-brand{
-    font-size: 20px;
+    font-size: 25px;
+    transition: all 1s;
 }
