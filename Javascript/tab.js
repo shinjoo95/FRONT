@@ -37,11 +37,53 @@ console.log('ㅎㅇ');
 
 // 반복문 안에 있는 변수를 만들 때는 변수는 let
 // var 변수는 범위가 function, let 변수는 범위가 {}
-for(let i = 0; i < 3; i++){                     
-$('.tab-button').eq(i).on('click', function(){   
+// for(let i = 0; i < 3; i++){                     
+// $('.tab-button').eq(i).on('click', function(){   
+//     $('.tab-button').removeClass('orange');
+//     $('.tab-button').eq(i).addClass('orange');
+//     $('.tab-content').removeClass('show');
+//     $('.tab-content').eq(i).addClass('show');
+// });
+// }
+
+//함수 축약하기
+//축약할 코드에 변수가 있으면 변수를 파라미터로 바꿔야 잘됨
+// for(let i = 0; i < 3; i++){                 
+//     $('.tab-button').eq(i).on('click', function(){
+//         탭열기(i)
+//     })
+// } 
+
+//탭 기능 다르게 만들기 
+//이벤트리스너 1개만 쓰기 -> 이벤트리스너가 줄어들면 줄어들 수록 램 용량 증가, 성능 향상 
+//이벤트버블링을 알고 있으면 이벤트리스너가 많이 필요없음.
+// $('.list').click(function(e){
+//     if(e.target == document.querySelectorAll('.tab-button')[0]){
+//         탭열기(0);
+//     }
+//     if(e.target == document.querySelectorAll('.tab-button')[1]){
+//         탭열기(1);
+//     }
+//     if(e.target == document.querySelectorAll('.tab-button')[2]){
+//         탭열기(2);
+//     }
+// })
+
+//html 태그에 몰래 정보 숨기기 가능
+//data-자료이름-"값"
+//숨겼던 자료 출력은 셀렉터.dataset.자료이름
+$('.list').click(function(e){
+    console.log(e.target.dataset.id)
+    //탭열기(지금누른버튼에 숨겨져 있는 data-id)
+    탭열기(e.target.dataset.id)
+})
+
+function 탭열기(숫자){   
     $('.tab-button').removeClass('orange');
-    $('.tab-button').eq(i).addClass('orange');
+    $('.tab-button').eq(숫자).addClass('orange');
     $('.tab-content').removeClass('show');
-    $('.tab-content').eq(i).addClass('show');
-});
+    $('.tab-content').eq(숫자).addClass('show');
 }
+//1. 함수로 축약할 때 변수 같은게 있으면 파라미터로 바꾸는게 좋음 
+//2. 이벤트리스너 줄이면 이점이 있음
+//3. dataset 알면 이벤트리스너 적게 사용할 때 내가 뭘 눌렀는 지 쉽게 파악 가능 
