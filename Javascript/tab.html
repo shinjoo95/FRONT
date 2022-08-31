@@ -48,7 +48,8 @@
       </style>
       <div class="container mt-3">
         <div class="card p-3">
-          상품명 / 가격
+          <span class="car-title">상품명</span>
+          <span class="car-price">가격</span>
         </div>
       </div>      
       <div class="container mt-5">
@@ -79,23 +80,23 @@
     <script src="tab.js"></script>
     <script>
       //array
-      //상품 / 가격
-      //변수 하나에 여러자료 저장가능 
-      //array 자료형 [자료1, 자료2, 자료3 ...]
-      var car = ['소나타', 50000, 'white'];
-      console.log(car[0]); //소나타 
-      //자료 추가 및 수정
-      car[0] = '아반떼'
+      // //상품 / 가격
+      // //변수 하나에 여러자료 저장가능 
+      // //array 자료형 [자료1, 자료2, 자료3 ...]
+      // var car = ['소나타', 50000, 'white'];
+      // console.log(car[0]); //소나타 
+      // //자료 추가 및 수정
+      // car[0] = '아반떼'
 
-      //object 자료형
-      //{이름1 : 자료1, 이름2: 자료2 ...}
-      //이름을 붙여서 저장 가능한게 장점 
-      //key : value 형태로 저장, 실제로 저장된 자료는 value값 
-      var car2 = {name : '소나타', price : 50000}
-      console.log(car2['name'])
-      console.log(car2.name)
-      //자료 추가 및 수정
-      car2.price = 60000;
+      // //object 자료형
+      // //{이름1 : 자료1, 이름2: 자료2 ...}
+      // //이름을 붙여서 저장 가능한게 장점 
+      // //key : value 형태로 저장, 실제로 저장된 자료는 value값 
+      // var car2 = {name : '소나타', price : 50000}
+      // console.log(car2['name'])
+      // console.log(car2.name)
+      // //자료 추가 및 수정
+      // car2.price = 60000;
       
       //array / object 차이점
       //데이터가 많으면 많을 수록 object가 편리함
@@ -103,8 +104,13 @@
       //array 자료간 정령 가능, 중간에 자르기 가능, 자료 검색가능, 맨앞/맨뒤에 자료 추가가능, 붙일 수 있는 추가 함수 많음 
       
       
-
+      // var car2 = {name : '소나타', price : 50000}
+      // document.querySelector('.car-title').innerHTML = car2.name; //.변수 넣기 불가
+      // document.querySelector('.car-price').innerHTML = car2.price;
     
+      // array 안에 아무거나 다 넣을 수 있음. object, array 넣기도 가능 
+     var car2 = {name : '소나타', price : [50000, 3000, 4000]}
+     document.querySelector('.car-price').innerHTML = car2.price[0]
     
     
     </script>
