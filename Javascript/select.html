@@ -16,12 +16,17 @@
         <select class="form-select mt-2">
             <option>모자</option>
             <option>셔츠</option>
+            <option>바지</option>
           </select>
-      <select class="form-select mt-2 form-hide">
-        <option>95</option>
-        <option>100</option>
-      </select>
+          <select class="form-select mt-2 form-hide">
+            <option>95</option>
+            <option>100</option>
+          </select>
   </form>
+  
+  <div id="test">
+    <h4>반가워</h4>
+  </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -31,13 +36,31 @@
         $('.form-select').eq(0).on('input', function(){
         if($('.form-select').eq(0).val() == '셔츠'){
             $('.form-select').eq(1).removeClass('form-hide');
-        }else {  //모자를 선택하면 둘째 <select>가 사라지게 만들기
+        }else if($('.form-select').eq(0).val() == '바지'){  //모자를 선택하면 둘째 <select>가 사라지게 만들기
+            //script에서 html추가하여 바지 사이즈 추가하기 
+            var 템플ㄹ
+            $('.form-select').eq(1).removeClass('form-hide');
+        }else{  //모자를 선택하면 둘째 <select>가 사라지게 만들기
             $('.form-select').eq(1).addClass('form-hide');
         }
-    })
+        })
+
         //<script> 안에 적은 코드는 페이지 로드시 1회만 실행됨 
         //유저가 선택할 때마다 저 코드를 실행시켜야 됨. 
 
+        //script로 html 만들기
+        //1. .createElement() 더 빠름
+        var a = document.createElement('p');
+        a.innerHTML = '안녕';
+        document.querySelector('#test').appendChild(a);
+        //2. insertAdjacentHTML()  .append()
+        var 템플릿 = '<p>안녕</p>';
+        document.querySelector('#test').insertAdjacentHTML('beforeend', 템플릿);
+                                     //문자형 html 넣어주는 함수  '위치'
+        $('#test').append(템플릿);
+
+        
+        
     </script>
 </body>
 </html>
