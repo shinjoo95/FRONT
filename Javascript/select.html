@@ -32,15 +32,31 @@
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <script>
+
+        var pants = [28, 30, 32, 34];
         //유저가 셔츠를 고르면 form-hide 제거해주세요
         $('.form-select').eq(0).on('input', function(){
+            var value = this.value; 
+
         if($('.form-select').eq(0).val() == '셔츠'){
             $('.form-select').eq(1).removeClass('form-hide');
-        }else if($('.form-select').eq(0).val() == '바지'){  //모자를 선택하면 둘째 <select>가 사라지게 만들기
+        }else if(value == '바지'){  //모자를 선택하면 둘째 <select>가 사라지게 만들기
             //script에서 html추가하여 바지 사이즈 추가하기 
-            var 템플ㄹ
             $('.form-select').eq(1).removeClass('form-hide');
-        }else{  //모자를 선택하면 둘째 <select>가 사라지게 만들기
+            $('.form-select').eq(1).html('');           //전 Html 요소를 제거해주세요
+            // var 템플릿 = `<option>28</option>
+            //             <option>30</option>`;
+            // $('.form-select').eq(1).append(템플릿);
+            
+            //pants 데이터 갯수만큼 <option> 생성, 
+            //forEach : array에만 붙일 수 있는 반복문, 파라미터 2개 생성가능 첫째는 array안의 데이터 둘 째는 0부터 1씩 증가하는 정수
+                pants.forEach(function(a){  //a : pants안의 하나의 데이터
+                    //call back 함수 생성해야됨
+                   $('.form-select').eq(1).append(`<option>${a}<option>`); //중간에 문자 넣기 
+                });
+                
+        }
+        else{  //모자를 선택하면 둘째 <select>가 사라지게 만들기
             $('.form-select').eq(1).addClass('form-hide');
         }
         })
@@ -59,8 +75,15 @@
                                      //문자형 html 넣어주는 함수  '위치'
         $('#test').append(템플릿);
 
+        //object 자료 갯수만큼 반복문을 돌릴려면
+        var obj = {name : 'shin', age : 28}
+        for (var key in obj){
+            console.log(key);       //키값 자료 이름, value 값은 obj[key];
+        }
         
-        
+        //반복문의 용도
+        //1. 코드 반복
+        //2. array, object 데이터 전부 꺼낼 때 
     </script>
 </body>
 </html>
