@@ -1,0 +1,49 @@
+<!-- GET : 데이터를 읽고 싶을 때, POST : 데이터를 보내고 싶을 때    
+    유저가 서버에 데이터를 보내려면 거의 POST 요청이 필요함
+    GET/POST 요청하면 브라우저 새로고침이 됨 
+    ajax 새로고침 없이 get,post 요청하는 기능 ex) 쇼핑몰 상품 더 가져오기, 새로고침 없이 댓글을 서버로 전송-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>basic</title>
+</head>
+<body>
+    
+    <form action="/sdfsdf" method="post"></form>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        //ajax로 get 요청하는 법 
+        $.get('url~~~~').done(function(data){
+            console.log(data)
+        });
+        //ajax로 post 요청하는 법
+        $.post('url~~~~', {name : 'shin'})
+            .done(function(data){
+            console.log(data)
+        }).fail(function(){         //ajax 실패시 특정 코드를 실행하고 싶으면 done/fail, then/catch
+            console.log('실패함')
+        })
+        //error 404 - url 서버 주소가 이상함
+
+        //브라우저 기본함수 fetch 써도 ajax 가능 
+        //서버와 유저는 문자자료만 주고 받을 수 있음 
+        //object, array 보내고 싶으면 따옴표쳐서 문자처럼 만들어야함 ex)"{"price":5000}" <--- JSON(원하는 자료만 뽑기 어려움)
+        //$get()은 JSON -> object 자동변환해줌 
+        fetch('https://codingapple1.github.io/price.json')
+        .then(res => res.json())        //받아온 JSON을 object로 바꿔주는 기능
+        .then(function(data){
+            console.log(data.price)
+        })
+        .catch(function(error){
+            console.log('실패함')
+        });
+
+    </script>
+</body>
+</html>
