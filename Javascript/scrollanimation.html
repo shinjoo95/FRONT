@@ -9,10 +9,39 @@
 </head>
 <body>
     
-    
+    <div class="card-background">
+        <div class="card-box">
+            <img src="img/a1.png">
+        </div>
+        <div class="card-box">
+            <img src="img/a2.png">
+        </div>
+        <div class="card-box">
+            <img src="img/a3.png">
+        </div>
+    </div>
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        $(window).scroll(function(){
+            var 높이 = $(window).scrollTop();
+            console.log(높이); 
+
+            //서서히 흐려지면서 없어지게 하기 
+            // 시작점 : 715  마지막 : 1000  opacity 1-0으로 서서히 변경
+            // 1 = a * 715(높이) + b
+            // 0 = a * 1000 + b 
+            var y = (-1/285) * 높이 + 200/57;
+            $('.card-box').eq(0).css('opacity', y);
+
+            // 서서히 작아지게 하기 
+            // 1 = a * 715(높이) + b
+            // 0 = a * 1000 + b 
+            var z = (-1/2850) * 높이 + 713/570;
+            $('.card-box').eq(0).css('transform', `scale( ${z} )`);
+        });
+    </script>
 </body>
 </html>
