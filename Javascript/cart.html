@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <title>cart</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">      
+            <!-- <div class="col-sm-4">
+              <img src="https://via.placeholder.com/600" class="w-100">
+              <h5>Card title</h5>
+              <p>가격 : 70000</p>
+            </div>      -->
+        </div>
+      </div> 
+    
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+
+    //데이터 저장하기 위한 가장 쉬운 방법은 변수,but 새로고침 됨
+    //브라우저 안에 몰래 데이터 저장 가능 
+    //검사 -> application -> storage
+    //localStorage, sessionStorage 
+    // - 이름 : 값 형태로 저장 가능(key : value), 용량은 5MB 문자/ 숫자만 저장 가능 
+    // - localStorage는 사이트 재접속해도 유지, session storage는 사이트 나가면 자동 삭제 
+    //indexedDB - 구조화된 대용량 데이터 저장 시 
+    //Cookies - 보통 로그인 정보 저장, 인증 정보 저장
+    //Cache Storage - html css js 파일 저장하는 곳
+    
+
+    var products = [
+            { id : 0, price: 70000, title: 'Blossom Dress'},
+            { id : 1, price: 50000, title: 'Springfield Shirt'},
+            { id : 2, price: 60000, title: 'Black Monastery'}
+        ];
+        products.forEach((a, i)=>{
+            var 템플릿 = 
+      `<div class="col-sm-4">
+        <img src="https://via.placeholder.com/600" class="w-100">
+        <h5>${products[i].title}</h5>
+        <p>가격 : ${products[i].price}</p>
+        <button class="buy">구매</button>
+      </div>`;
+      $('.row').append(템플릿)
+        
+        });
+
+        //로컬스토리지 저장 방법
+        // localStorage.setItem('이름','kim')
+        //로컬스토리지 출력 방법
+        // localStorage.getItem('이름');
+        //로컬스토리지 데이터 삭제
+        // localStorage.removeItem('이름');
+        //로컬스토리지 데이터 수정 방법 : 자료꺼냄 -> 꺼낸 것 수정 -> 다시 저장 
+
+        //로컬스토리지에 array,object 저장하려면 array/object -> JSON으로 바꾸면 저장 가능 (문자 취급 받도록)
+        //array/object -> JSON은 JSON.stringify() ,  JSON -> array/object는 JSON.parse()
+        // var arr = [1,2,3];
+        // var newArr =  JSON.stringify(arr);
+        // localStorage.setItem('num', newArr);
+        // var 출력 = localStorage.getItem('num');    
+        // console.log(JSON.parse(출력));
+
+        //구매버튼 누르면 장바구니에 상품명 추가
+        //1. 구매버튼 누르면 
+        //2. 상품명을 가져와서
+        //3. 로컬스토리지에 [글자]저장 
+        $('.buy').click(function(e){
+            var title = $(e.target).siblings('h5').text();       //siblings : 형제 요소를 찾아와줌
+            // e.target.previousElementSibling.previousElementSibling
+            if(localStorage.getItem('cart') != null){
+                var 출력 = JSON.parse(localStorage.cart);
+                출력.push(title);
+                localStorage.setItem('cart', JSON.stringify(출력));
+            }else{
+                localStorage.setItem('cart',JSON.stringify([title]));
+            }
+        })
+
+</script>   
+</body>
+</html>
