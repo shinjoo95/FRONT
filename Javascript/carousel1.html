@@ -1,0 +1,64 @@
+   <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="carousel.css" rel="stylesheet">
+        <title>carousel</title>
+    </head>
+    <body>
+
+        <div style="overflow: hidden"> <!-- 넘치는 부분 숨기기 -->
+        <div class="slide-container">
+            <div class="slide-box">
+                <img src="/Javascript/img/bus.png" draggable="false">
+            </div>
+            <div class="slide-box">
+                <img src="/Javascript/img/car.png">
+            </div>
+            <div class="slide-box">
+                <img src="/Javascript/img/motor.png">
+            </div>
+        </div>
+    </div> 
+
+    
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+     <script>
+        //내가 드래그한 거리만큼 사진도 왼쪽으로 움직임, 100px이상  이동 시 둘째사진으로 이동
+        //mousedown 마우스를 누를 때 발생하는 이벤트,mousemove 마우스를 움직였을 때 발생, e.clientX 마우스의 좌표 출력
+        var 시작좌표 = 0;
+        var click = false; 
+        $('.slide-box').eq(0).on('mousedown', function(e){       
+           시작좌표 = e.clientX;
+           click = true;
+                                  
+        });
+        $('.slide-box').eq(0).on('mousemove', function(e){       
+            if(click == true){      
+            $('.slide-container').css('transform',`translateX(${e.clientX - 시작좌표}px)`)                 
+            }
+        });
+        $('.slide-box').eq(0).on('mouseup', function(e){       
+           click = false;
+            //100이상 이상 시 2번으로 넘기기, 아니면 1번
+            if(e.clientX - 시작좌표 < -100){
+                $('.slide-container').css('transform', 'translateX(-100vw)');
+            }else{
+                $('.slide-container').css('transform', 'translateX(0vw)');
+            }
+        });
+        
+        //mouse vs touch(touchstart, touchmove, touchend)
+        //Hammer.js
+        //- 브라우저간 호환성을 잡아줌
+        //- 이벤트리스너 6개 말고 1개만 필요
+        //- 스와이프, pinch, rotate 이벤트리스너도 제공 
+    
+    
+     </script>
+    </html> 
