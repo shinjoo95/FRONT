@@ -7,13 +7,17 @@ function App() {
   let post = '강남 우동 맛집';  //자료 잠깐 저장할 땐 변수
   let[글제목, 글제목변경] = useState(['남자 코트 추천', '강남 우동 맛집', '리액트 독학']);
   let[logo, setLogo] = useState('ReactBlog');
-  let[좋아요, 좋아요수] = useState(0);
+  let[좋아요, 좋아요수] = useState([0,0,0]);
   //state 쓰는 이유 - 자주 변경될 것 같은 Html부분을 state로 만들어 놓기
   //일반 변수가 갑자기 변경이 되면 자동변경이 불가능함 
   //state는 갑자기 변경되면 자동으로 html에 재렌더링이 됨
   
   let [modal, setModal] = useState(false);    // state 저장
 
+  // [1,2,3].map(function(){           //반복문 .map() - array 자료 갯수만큼 함수안의 코드를 실행해줌, 
+  //                                   //함수의 파라미터는 array안에 있던 자료임, return에 자료를 작으면 array로 담아줌 
+
+  // })
 
   function 함수(){
     좋아요수(좋아요+1);
@@ -47,7 +51,7 @@ function App() {
       }}>글수정</button>
 
 
-      <div className="list">
+      {/* <div className="list">
       <h4> {글제목[0]} <span onClick={함수}>👍🏻</span> {좋아요} </h4>   
       <p>8월 5일 발행</p>
       </div>
@@ -58,7 +62,25 @@ function App() {
       <div className="list">
       <h4 onClick={()=>{ setModal(!modal) }}> {글제목[2]}</h4>
       <p>8월 5일 발행</p>
-      </div>
+      </div> */}
+      {/* 반복문 */}
+      {
+        글제목.map(function(a, i){
+          return(     
+          <div className="list" key='0'>        
+          {/* 반복문으로 html을 생성하면 key={html마다 다른 숫자}를 추가해야됨 */}
+          <h4>   { 글제목[i] } 
+                <span onClick={()=>{ 
+                  let copy = [...좋아요];
+                  copy[i] = copy[i] + 1;
+                  좋아요수(copy)  
+               }}>👍</span> {좋아요[i]}
+          </h4>
+          <p>8월 5일 발행</p>
+          </div>
+          )
+        })
+      }
 
       {/* 동적인 ui 만드는 step
       1. html css로 미리 디자인 완성
