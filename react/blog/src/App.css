@@ -13,8 +13,13 @@
   color: white;
   padding-left: 20px;
 }
+.modal{
+  background: rgb(216, 214, 214);
+  text-align: left;
+  padding: 20px;
+}
 
-.App-logo {
+.App-logo { 
   height: 40vmin;
   pointer-events: none;
 }
