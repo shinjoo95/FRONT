@@ -1,4 +1,15 @@
+//JSX 문법
+//class 넣을 땐 className
+//변수 넣을 땐 {중괄호} - 데이터 바인딩
+//style 넣을 땐 style={{스타일명 : '값'}}
 
+//return() 안에는 병렬로 태그 2개 이상 기입금지 
+
+// 1. import { useState }
+// 2. useState(보관할 자료)
+// 3. let[작명1, 작명2])  작명1 : state에 보관했던 자료 / 작명2 : state 변경을 도와주는 함수 
+
+// onClick = {}안엔 함수이름을 넣어야됨
 import logo from './logo.svg';
 import './App.css';
 import {useState} from 'react';
@@ -14,10 +25,14 @@ function App() {
   
   let [modal, setModal] = useState(false);    // state 저장
 
+  let [title, setTitle] = useState(0);     //모달창 제목 변경 
+
   // [1,2,3].map(function(){           //반복문 .map() - array 자료 갯수만큼 함수안의 코드를 실행해줌, 
   //                                   //함수의 파라미터는 array안에 있던 자료임, return에 자료를 작으면 array로 담아줌 
 
   // })
+
+  
 
   function 함수(){
     좋아요수(좋아요+1);
@@ -69,8 +84,8 @@ function App() {
           return(     
           <div className="list" key='0'>        
           {/* 반복문으로 html을 생성하면 key={html마다 다른 숫자}를 추가해야됨 */}
-          <h4>   { 글제목[i] } 
-                <span onClick={()=>{ 
+          <h4 onClick={()=>{ setModal(true); setTitle(i)}}> {글제목[i]}
+                 <span onClick={()=>{  
                   let copy = [...좋아요];
                   copy[i] = copy[i] + 1;
                   좋아요수(copy)  
@@ -88,7 +103,7 @@ function App() {
       3. state에 따라 ui가 어떻게 보일지 작성  */}
       {
         //삼항 연산자 조건식 ? 참일 때 실행할 코드 : 거짓일 때 실행할 코드 
-        modal == true ? <Modal/> : null
+        modal == true ? <Modal title={title} 글제목변경={글제목변경} color={'skyblue'} 글제목={글제목}/> : null
       }
     </div>
   );
@@ -103,28 +118,21 @@ function App() {
         단점 : state 가져다쓸 때 문제생김, A함수에 있던 변수는 B함수에서 마음대로 가져다 쓸 수 없음 */
 
   
-  function Modal(){
+  function Modal(props){
   return(
-    <div className="modal">
-      <h4>제목</h4>
+    <div className="modal" style={{background : props.color}}>
+      <h4>{props.글제목[props.title]}</h4>
       <p>날짜</p>
       <p>상세내용</p>
+      <button>글수정</button>
     </div>
   )
 }
+//props 
+//부모 -> 자식 state 전송하는 법, 자식에서 부모로는 불가능 
+//1. <자식컴포넌트 작명={state이름}>
+//2. props 파라미터 등록 후 props.작명 사용
 
 export default App;
 
-//JSX 문법
-//class 넣을 땐 className
-//변수 넣을 땐 {중괄호} - 데이터 바인딩
-//style 넣을 땐 style={{스타일명 : '값'}}
-
-//return() 안에는 병렬로 태그 2개 이상 기입금지 
-
-// 1. import { useState }
-// 2. useState(보관할 자료)
-// 3. let[작명1, 작명2])  작명1 : state에 보관했던 자료 / 작명2 : state 변경을 도와주는 함수 
-
-// onClick = {}안엔 함수이름을 넣어야됨
 
