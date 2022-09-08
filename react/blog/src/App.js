@@ -22,7 +22,8 @@ function App() {
   //state 쓰는 이유 - 자주 변경될 것 같은 Html부분을 state로 만들어 놓기
   //일반 변수가 갑자기 변경이 되면 자동변경이 불가능함 
   //state는 갑자기 변경되면 자동으로 html에 재렌더링이 됨
-  
+  let[입력값, 입력값변경] = useState('');  
+
   let [modal, setModal] = useState(false);    // state 저장
 
   let [title, setTitle] = useState(0);     //모달창 제목 변경 
@@ -85,13 +86,19 @@ function App() {
           <div className="list" key='0'>        
           {/* 반복문으로 html을 생성하면 key={html마다 다른 숫자}를 추가해야됨 */}
           <h4 onClick={()=>{ setModal(true); setTitle(i)}}> {글제목[i]}
-                 <span onClick={()=>{  
+                 <span onClick={(e)=>{e.stopPropagation();    //상위 html로 퍼지는 이벤트버블링을 막고 싶으면 e.stopPropagation();  
                   let copy = [...좋아요];
                   copy[i] = copy[i] + 1;
                   좋아요수(copy)  
                }}>👍</span> {좋아요[i]}
           </h4>
           <p>8월 5일 발행</p>
+          {/* 삭제 버튼 만들기 */}
+          <button onClick={()=>{
+            let copy = [...글제목];
+            copy.splice(i,1);
+            글제목변경(copy);
+          }}>삭제</button>
           </div>
           )
         })
@@ -101,6 +108,21 @@ function App() {
       1. html css로 미리 디자인 완성
       2. ui 현재 상태를 state로 저장
       3. state에 따라 ui가 어떻게 보일지 작성  */}
+       
+       {/* <input>에 뭔가 입력시 코드를 실행해주는 코드, onInput 
+            이벤트 핸들러 매우 많음 */}
+      <input onChange={(e)=>{
+        입력값변경(e.target.value);      //state 변경함수는 늦게 처리됨, 다음 줄 먼저 처리 
+      }}>
+        </input> 
+
+        {/* 버튼 누르면 글 추가*/}
+      <button onClick={()=>{
+        let copy = [...글제목];
+        copy.unshift(입력값);
+        글제목변경(copy)
+      } }>글발행</button>
+
       {
         //삼항 연산자 조건식 ? 참일 때 실행할 코드 : 거짓일 때 실행할 코드 
         modal == true ? <Modal title={title} 글제목변경={글제목변경} color={'skyblue'} 글제목={글제목}/> : null
