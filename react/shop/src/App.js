@@ -4,7 +4,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Container, Nav, Row } from 'react-bootstrap';
 import bg from './react-shoe.png';
 import Col from 'react-bootstrap/Col';
+import { useState } from 'react';
+// import 작명 from './data.js';              //data.js 데이터를 가져옴
+import data from './data.js';
 function App() {
+
+  let [shoes] = useState(data)
+
   return (
     <div className="App">
       {/* 대문자는 컴포넌트 */}
@@ -28,25 +34,42 @@ function App() {
       {/* <div className='main-bg' style={{backgroundImage: 'url('+bg+')'}}></div> */}
       <Container>
       <Row>
-      <Col>
-        <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="80%"/>
-        <h4>상품명</h4>
-        <p>상품설명</p>
-        </Col>
-        <Col>
+      {/* 컴포넌트 활용하기 */}
+      {/* <Card shoes={shoes[0]} i={1}></Card>
+      <Card shoes={shoes[1]} i={2}></Card>
+      <Card shoes={shoes[2]} i={3}></Card> */}
+        {/* <Col>
         <img src="https://codingapple1.github.io/shop/shoes2.jpg" width="80%"/>
-        <h4>상품명</h4>
-        <p>상품설명</p>
+        <h4>{shoes[1].title}</h4>
+        <p>{shoes[1].price}</p>
         </Col>
         <Col>
         <img src="https://codingapple1.github.io/shop/shoes3.jpg" width="80%"/>
-        <h4>상품명</h4>
-        <p>상품설명</p>
-        </Col>
+        <h4>{shoes[2].title}</h4>
+        <p>{shoes[2].price}</p>
+        </Col> */}
+        {/* 반복문 map 활용하기 */}
+        {
+          shoes.map((a, i)=>{
+            return(
+              <Card shoes={shoes[0]} i={i+1}></Card>
+            )
+          })
+        }
+
       </Row>
       </Container>
     </div>
   );
 }
-
+//컴포넌트 만들기
+function Card(props){
+  return(
+<Col>
+  <img src={"https://codingapple1.github.io/shop/shoes"+props.i+".jpg"} width="80%"/>
+  <h4>{props.shoes.title}</h4>
+  <p>{props.shoes.price}</p>
+  </Col>  
+  )
+}
 export default App;
