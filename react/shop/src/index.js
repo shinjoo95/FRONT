@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import App from './App';                          // 내가 만든 js 파일들은 ./부터
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from "react-router-dom"; //대부분 설치한 라이브러리 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <BrowserRouter>
     <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
 

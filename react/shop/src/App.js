@@ -7,12 +7,22 @@ import Col from 'react-bootstrap/Col';
 import { useState } from 'react';
 // import 작명 from './data.js';              //data.js 데이터를 가져옴
 import data from './data.js';
+import { Route, Routes, Link} from 'react-router-dom'
 function App() {
 
   let [shoes] = useState(data)
 
   return (
+
     <div className="App">
+      {/* 페이지 나누는 법 */}
+      <Routes>
+        <Route path='/' element={<div>메인페이지임</div>}/>
+        <Route path='/detail' element={<div>상세페이지임</div>}/>
+      </Routes>
+      <Link to="/">메인페이지</Link>
+      <Link to="/detail">상세페이지</Link>
+
       {/* 대문자는 컴포넌트 */}
       <Navbar bg="dark" variant="dark"> 
         <Container>
@@ -72,4 +82,9 @@ function Card(props){
   </Col>  
   )
 }
+
+//페이지 나누는 법 (라우터)
+//1. 컴포넌트를 만들어서 상세페이지 내용을 채움
+//2. 누가 /detail 접속하면 그 컴포넌트를 보여줌
+//npm install react-router-dom@6 
 export default App;
