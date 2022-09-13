@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.css';             //컴포넌트.module.css 오염방지 app.js에만 종속 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Container, Nav, Row } from 'react-bootstrap';
 import bg from './react-shoe.png';
@@ -9,6 +9,7 @@ import { useState } from 'react';
 import data from './data.js';
 import { Route, Routes, Link, useNavigate, Outlet} from 'react-router-dom'
 import Detail from './routes/Detail.js'
+import styled from 'styled-components';       //css 없이 스타일 꾸미기. 스타일이 다른 js파일로 오염되지 않음, 로딩시간 단축 
 function App() {
 
   let [shoes] = useState(data)
