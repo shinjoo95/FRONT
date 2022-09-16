@@ -1,0 +1,75 @@
+<!-- this -->
+<div></div>
+<button id="버튼">버튼</button>
+<script>
+
+    //this 그냥 쓰거나 일반 함수 안에서 쓰면 {window} - 기본 함수들의 수납 공간 
+    console.log(this)
+    function 함수(){
+        console.log(this);
+    }
+    함수()
+
+    //오브젝트 함수내(메소드)의 this는 그 함수를 가지고 있는 오브젝트를 뜻함 O 
+    var 오브젝트 = {
+        data : 'kim',
+        함수 : function(){
+            console.log(this)
+        }
+    }
+    오브젝트.함수();
+
+    var 오브젝트1 = {
+        data : {
+            함수 : function(){
+                console.log(this)
+            }
+        }
+    }
+    오브젝트1.data.함수();
+    
+    //기존문법 : function(){} / 신문법 : ()=>{}
+    //this 값을 함수 밖에 있던거 그대로 사용
+    var 오브젝트2 = {
+        data : {
+            함수 : ()=>{
+                console.log(this)
+            }
+        }
+    }
+    오브젝트2.data.함수();
+
+    //함수나 변수를 전역공간에서 만들면 -> {window}에 보관함 
+    //window.함수(); 도 사용 가능
+    
+    //오브젝트 생성기계(constructor) 안에서 쓰면 새로 생성되는 오브젝트를 뜻함 
+    function 기계(){
+        this.이름 = 'kim'   //새로 생성되는 오브젝트 (instance)
+    }
+    
+    //이벤트리스너
+    document.getElementById('버튼').addEventListener('click',function(e){
+        // console.log(this); //이벤트리스너 안에서는 e.currentTarget 역할 
+        // console.log(e.currentTarget);
+        var 어레이 = [1,2,3];
+        어레이.forEach(function(a){         //function(a) 함수안에 들어가는 함수를 콜백함수라고 칭함 
+            console.log(a)
+            console.log(this)             //함수가 쓰인 위치에 따라 this 값이 변함 
+        });                               //일반 함수에서는 window 전역함수 
+    })
+
+    //오브젝트 내에서 콜백함수를 쓰는 this? 
+    var 오브젝트3 = {
+        이름들 : ['김', '이', '신'],
+        함수 : function(){
+            console.log(this);                  //위 함수를 소유한 오브젝트 
+            오브젝트3.이름들.forEach(function(){    //근본없는 일반 함수 -> window
+                console.log(this)               //arrow function 특징 : 내부의 this 값을 변화시키지 않음 (외부 this 값 그대로 재사용 가능 )
+            })
+        }
+    }
+    오브젝트3.함수();
+    //this의 위에 function을 잘 파악하기! 
+
+</script>
+
