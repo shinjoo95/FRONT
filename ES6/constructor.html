@@ -1,0 +1,51 @@
+<!-- 객체지향 constructor prototype -->
+<script>
+    //constructor 문법의 용도
+    //비슷한 object 여러개 만들려면 constructor 라는 object 생성 기계 만들면 됨
+    //object를 막 복사하고 싶을 때 사용
+
+    //예시 : 학생 출석부 
+    // var 학생1 = {
+    //     name : 'kim',
+    //     age : 15,
+    //     sayHi : function(){
+    //         console.log('안녕하세요' + this.name + '입니다.')
+    //     }
+    // }
+    // 학생1.sayHi();
+
+    function Student(이름){         //constructor 문법은 보통 대문자 
+        this.name = 이름;     //this는 새로 생성되는 object를 뜻함
+        this.age = 15;
+        this.sayHi = function(){
+            console.log('안녕하세요' + this.name + '입니다.')
+        }
+    }
+    //상속을 구현할 수 있는 또 하나의 문법 prototype (원형, 유전자)
+    //기계(constructor)를 만들면 prototype이라는 공간이 자동으로 생김
+    //prototype에 값을 추가하면 모든 자식들이 물려받기 가능
+    //prototype의 동작원리
+    //1. 학생1이 직접 gender를 가지고 있는가?
+    //2. 아니면 학생1의 부모 유전자가 gender를 가지고 있는가?
+    Student.prototype.gender = '남';
+
+    var 학생1 = new Student('신주용');
+    var 학생2 = new Student();
+
+    학생1.sayHi();
+    학생2.sayHi();
+    //this : 기계(constructor 생성자)에서 생성되는 obeject(instance)
+    //기계 : object 생성자 
+
+    //예시 쇼핑몰 부가세 10프로
+    function Products(상품명, 가격){
+        this.name = 상품명;
+        this.price = 가격;
+        this.tax = function(){
+            console.log(this.price * 0.1)
+        }
+    }
+    var product1 = new Products('shirts', 50000);
+
+
+</script>
