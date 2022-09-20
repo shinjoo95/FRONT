@@ -48,4 +48,15 @@
     var product1 = new Products('shirts', 50000);
 
 
+    //prototype 
+    //1. 함수에만 생성된다. 
+    //2. 내 부모의 Prototype을 검사하고 싶다면 __proto__
+    //3. __proto__를 이용해 부모 강제 등록하기
+    var 부모 = { name : 'kim' };
+    var 자식 = {};
+    자식.__proto__ = 부모;
+    자식.name;
+    //4.콘솔창에서 알려주는 prototype chain
+    
+
 </script>
