@@ -1,0 +1,28 @@
+<!-- extends / super -->
+<script>
+    //class 상속 --> extends
+
+    class 할아버지{
+        constructor(name){
+            this.성 = 'shin';
+            this.이름 = name;
+        }
+        sayHi(){
+            console.log('안녕 저는 할아버지에요');
+        }
+    }
+    var 할아버지1 = new 할아버지('만덕');  
+
+    class 아버지 extends 할아버지{
+        constructor(name){      //super 부모 class의 constructor를 의미 
+            super(name);        //extends의 부모의 constructor를 뜻함, 파라미터는 따라써주기
+            this.나이 = 50;
+        }
+        sayHi(){
+            console.log('안녕 저는 아버지에요');
+            super.sayHi();      //부모 class의 prototype을 의미 
+        }
+    }
+    var 아버지1 = new 아버지('주용');
+    //extends 해서 만든 class는 this를 그냥 못씀 super()다음에 써야됨
+</script>
