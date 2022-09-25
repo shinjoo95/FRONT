@@ -1,0 +1,28 @@
+<!-- ES6 첨부 
+    1. export default 문법
+    import 가져올거 from '경로'
+    export default 내보낼거 
+    2. 여러개 내보내는 문법
+    import{가져올것들} from '경로'
+    export{내보낼것들}
+    3. export / export default 동시 사용 가능 -->
+<script src="importExport1.js"></script>
+
+<script type="module">
+
+    //React, Angular 에서 많이 사용함 
+    //import 가져올거 from '경로'
+    //모든 내용을 가져오지 않음, 특정한 변수만 가져옴 
+    import a from '/importExport1.js';
+    console.log(a);
+    //export default를 쓰면 import할 때 이름을 바꿔도 됨
+    
+    import a,{b,c} from '/importExport1.js'
+    console.log(b);
+    //여러개 활용시 이름은 똑같이 써야됨 
+    //모든 걸 다 import 하고 싶을 때 *
+
+    //import 시 변수명 변경 방법
+    import {a as 변수명} from '/importExport1.js'
+    console.log(변수명);
+</script>
