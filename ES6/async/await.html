@@ -1,0 +1,52 @@
+<!--promise가 복잡하다, 어렵다 할 때 대용할 함수 -> async, await
+    ES8부터 사용가능-->
+<button id="button">버튼</button>
+<script>
+    //연산이 끝나면 특정코드를 실행하고 싶음 
+    //async를 function 앞에 붙이면 함수가 promise 역할 가능
+    //단점. 성공만 가능 
+    async function 더하기(){
+        return 1+1;
+    }
+    더하기().then(function(결과){
+        console.log(결과 + '성공입니다.')
+    })
+
+    //함수안에서 promise쓰기
+    async function 더하기1(){
+
+    var 프로미스 = new Promise(function(resolve, reject){
+        var 힘든연산 = 1+1;
+        resolve(100);
+    //reject();
+    });
+    // 프로미스.then(function(){
+    //     console.log('성공')
+    // })
+    //async function 안에서 쓰는 await은 then 대신 사용 가능
+    //await은 프로미스 실패시 에러나고 멈춤 
+    
+    try{    //에러방지 try{이걸해보고 } catch{안되면 이걸 실행해주세요}
+        var 결과 = await 프로미스;
+        console.log(결과); 
+    } catch{
+        console.log('프로미스 연산을 실패했습니다.')
+
+    } 
+}
+    더하기1();
+
+    //버튼을 누르면 성공 판정하는 Promise & 콘솔에 성공 출력
+    async function 버튼(){
+        var promise = new Promise(function(resolve,reject){
+            document.getElementById('button').addEventListener('click',
+            function(){
+                console.log('성공')
+            })
+        });
+        var 결과 = await promise;
+        console.log(결과)
+    }
+    버튼();
+    //순차적으로 많은 것을 실행할 때 유용
+</script>
