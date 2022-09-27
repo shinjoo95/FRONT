@@ -1,0 +1,43 @@
+<!-- 자바스크립트 반복문
+    반복문은 코드를 여러번 실행할 때 사용, Array, Object에서 자료를 꺼내쓸 때 사용
+    for 반복문
+    forEach() 반복문 (Array 전용)
+    for in 반복문 (Object 전용)
+    for of 반복문 (iterable 전용) -->
+<script>
+    class 부모{
+
+    }
+    부모.prototype.name = 'park'
+    var obj = new 부모();
+
+    var 오브젝트 = {name : 'shin', age : 30};
+    오브젝트.name;
+    오브젝트['name'];
+    
+    for(var i = 0; i < 3; i++){
+
+    }
+    
+    [1,2,3].forEach
+    //for in : object에 있는 값을 전부 하나씩 꺼내서 사용할 때 
+    //1. enumerable(셀 수 있는지 여부) 한 것만 반복해줌 , 일반 자료들은 항상 enumerable이 항상 true
+    //2. 부모의 Prototype도 반복해줌 
+    //3. object 자료형에만 사용 
+    for (var key in 오브젝트){   
+    if (오브젝트.hasOwnProperty(key)){    //내가 직접 가지고 있는 값만 반복시키고 싶으면 사용  
+        console.log(오브젝트[key])    //반복문을 돌 때마다 하나하나의 key 값을 저장
+        }      
+    }
+    
+    //for of : Array, 문자, arguments, NodeList, Map, Set에서 사용 가능
+    //iterable한 자료형에만 사용가능 
+    var 어레이 = [2,3,4,5];
+    //      작명자리
+    for (var 자료 of 어레이){
+        console.log(자료)
+    }
+    
+
+    어레이[Symbol.iterator]();  //내부 데이터 출력을 도와주는 함수, 실용성X
+</script>
