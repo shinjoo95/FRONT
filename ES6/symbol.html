@@ -1,0 +1,30 @@
+<!-- ES6부터 나온 자료형 많이 사용되진 않음 
+    ojbect 자료형의 비밀스런 Key 값-->
+<script>
+    //import 해온 파일 / 라이브러리를 사용할 때 거기에 있던 object에 자료를 추가하고 싶을 때 사용
+    var 심볼 = Symbol('설명');
+    
+    //symbol 특징
+    //1. 설명이 같다고 같은 symbol이 아님, symbol을 만들 때마다 유니크한 symbol이 생김
+    // - 전역 변수같은 전역 symbol? ---> Symbol.for() 
+   
+    var weight = Symbol('몸무게 비밀')
+    var height = Symbol('키 비밀')
+    var address = Symbol('주소 비밀')
+    //전역 심볼
+    var a = Symbol.for('설명') // '설명'을 가지고 있는 심볼이 있으면 기존 심볼을 복붙해줌 
+    var b = Symbol.for('설명')
+
+    var person = {name: 'shin', age: 28, [address] : 'seoul'};
+    person.weight = 70;
+    person[weight] = 75;    //enumerable 하지 않아서 반복문에 출력 안됨 
+    person[height] = 173;
+
+    for (var key in person){
+        console.log(person[key]) //반복문에 symbol자료형은 출력이 안됨, 주석과 비슷
+    }
+
+     //2. 기본 내장 symbol들
+     var 어레이 = [2,3,4];
+     어레이[Symbol.iterator];
+</script>
