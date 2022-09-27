@@ -1,0 +1,36 @@
+<!-- Map / Set 자료형 -->
+<script>
+
+    //key, value를 저장하는 Map 자료형 index? 
+    //array, object와 같은 방법으로 생성 
+    //map 자료형은 자료간의 연관성을 표현하기 위해 사용 
+    //object 자료형은 자료 이름으로 글자만 가능, map 형은 다 가능 
+    var person = new Map();
+    person.set('name', 'kim');  //Map(1) {'name' => 'kim'} 화살표로 출력
+    person.set('age', 20);
+    //자료형을 한꺼번에 직접 자료를 집어 넣을 땐
+    var person = new Map([
+        ['name', 'kim'],
+        ['age', 20]
+    ])
+    
+    person.get('age');      //map 에서 자료 꺼내는 법
+    person.delete('name');   //map 에서 자료 삭제하는 법
+    person.size;             //map 에서 자료 사이즈 측정법
+
+    //set 자료형
+    //중복자료를 허용하지 않는 Array와 비슷 
+    var 출석부 = ['john', 'tom', 'andy', 'tom']
+    var 출석부2 = new Set(['john', 'tom', 'andy', 'tom']);  //출력 => Set(3) {'john', 'tom', 'andy'} 
+
+    //set 자료형 <-> Array 자료형
+    //Array의 중복자료를 제거하고 싶으면? 
+    출석부 = [...출석부2];
+
+    출석부2.add('sally'); //자료 추가
+    출석부2.delete('sally'); //자료 제거
+    출석부2.has('john');    //자료 유무
+    출석부2.size; //자료 갯수 
+
+    
+</script>
