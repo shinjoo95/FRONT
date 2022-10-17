@@ -3,6 +3,6 @@
 
 ## **안녕하세요🥴**   
 
-HTML / CSS / JS / REACT 
+HTML / CSS / JS / VUE.js / GIT / FLUTTER
 
 독학 내용입니다 ! 
